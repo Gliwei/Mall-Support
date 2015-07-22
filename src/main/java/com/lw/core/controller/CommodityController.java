@@ -16,12 +16,14 @@ public class CommodityController {
 	
 	@RequestMapping("/list.json")
 	public @ResponseBody List<Commodity> list(){
-		System.out.println("CommodityController.list()");
+		System.out.println("CommodityController.list()"+"-JSON");
 		List<Commodity> list = new ArrayList<Commodity>();
 		for(int i=0; i<10; i++){
 			Commodity c = new Commodity();
 			c.setId(i);
+			c.setSku("SKU"+i);
 			c.setTitle("iPhone"+i);
+			c.setSubtitle("Subtitle"+i);
 			list.add(c);
 		}
 		return list;
