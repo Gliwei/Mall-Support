@@ -1,14 +1,30 @@
 package com.lw.core.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BaseEntity {
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
+
+import org.apache.commons.lang3.StringUtils;
+
+@MappedSuperclass
+public abstract class BaseEntity {
+	@Id
+	@GeneratedValue
 	private Integer id;
-	
-	private Long version;
+	private Integer version;
 	private String lastOperator;//操作者
 	private Date createTime;
 	private Date lastModifyTime;
+	
+	@Transient
+	public boolean isNew() {
+        Serializable id = getId();
+        return id == null || StringUtils.isBlank(String.valueOf(id));
+    }
 	
 	public Integer getId() {
 		return id;
@@ -16,12 +32,16 @@ public class BaseEntity {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Long getVersion() {
+	
+	
+	public Integer getVersion() {
 		return version;
 	}
-	public void setVersion(Long version) {
+
+	public void setVersion(Integer version) {
 		this.version = version;
 	}
+
 	public String getLastOperator() {
 		return lastOperator;
 	}
@@ -40,5 +60,4 @@ public class BaseEntity {
 	public void setLastModifyTime(Date lastModifyTime) {
 		this.lastModifyTime = lastModifyTime;
 	}
-	
 }

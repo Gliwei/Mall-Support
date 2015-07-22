@@ -2,8 +2,13 @@ package com.lw.core.entity;
 
 import java.math.BigDecimal;
 
-//@Entity
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="g_commodity")
 public class Commodity extends BaseEntity{
+	
 	
 	private String sku;
 	private String title;// 标题
@@ -13,6 +18,8 @@ public class Commodity extends BaseEntity{
 	private BigDecimal costPrice;// 成本价
 	private String mainPicture;// 商品主图
 	private String htmlDescription;// 商品描述
+	
+	
 	public String getSku() {
 		return sku;
 	}
