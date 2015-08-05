@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.lw.core.dao.CommodityDao;
 import com.lw.core.entity.Commodity;
+import com.lw.core.util.Pageable;
 
 @Service
 public class CommodityService {
@@ -19,5 +20,10 @@ public class CommodityService {
 
 	public void save(Commodity commodity) {
 		commodityDao.saveOrUpdate(commodity);
+	}
+	
+	public Pageable<Commodity> findByPage(int pageNo){
+		Pageable<Commodity> pageable = new Pageable<Commodity>(pageNo);
+		return commodityDao.findByPage(pageable);
 	}
 }
