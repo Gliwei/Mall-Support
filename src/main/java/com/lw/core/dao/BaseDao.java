@@ -1,37 +1,54 @@
 package com.lw.core.dao;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import com.lw.core.entity.BaseEntity;
+import com.lw.core.util.Pageable;
 
-public class BaseDao<T extends BaseEntity> {
-	@Autowired HibernateTemplate hibernateTemplate;
-	
-	public void saveOrUpdate(T entity){
-		if(entity==null){
-			throw new NullPointerException(this.getClass().getName()+" saveOrUpdate param entity is null");
+public class BaseDao<T extends BaseEntity, ID extends Serializable> {
+
+	@PersistenceContext EntityManager em;
+
+	private Class<T> clazz;
+
+	public BaseDao(Class<T> clazz) {
+		this.clazz = clazz;
+	}
+
+	public void saveOrUpdate(T entity) {
+		if (entity == null) {
+			throw new NullPointerException(this.getClass().getName()
+					+ " saveOrUpdate param entity is null");
 		}
 		Date now = new Date();
-		if(entity.isNew()){
+		entity.setLastModifyTime(now);
+		if (entity.isNew()) {
 			entity.setCreateTime(now);
 			entity.setVersion(0);
+			em.persist(entity);
+		}else{
+			em.merge(entity);
 		}
-		entity.setLastModifyTime(now);
-		hibernateTemplate.saveOrUpdate(entity);
 	}
-	
-	/**
-	 * 
-	 * @param entity 只是为了获取类名
-	 * @return
-	 */
+
 	@SuppressWarnings("unchecked")
-	public List<T> findAll(T entity){
-		return hibernateTemplate.find("from "+entity.getClass().getCanonicalName());
+	public List<T> findAll() {
+		return em.createQuery("from "+clazz.getSimpleName()).getResultList();
 	}
 	
+	public T findById(ID id){
+		return em.find(clazz, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	public void findByPage(Pageable<T> page) {
+		List<T> list = em.createQuery("from "+clazz.getSimpleName())
+				.setFirstResult(page.getStartRow()).setMaxResults(page.getRows()).getResultList();
+		page.setList(list);
+	}
 }

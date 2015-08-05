@@ -10,13 +10,14 @@ import com.lw.core.entity.Commodity;
 
 @Service
 public class CommodityService {
-	@Autowired CommodityDao commodityDao;
-	
-	public List<Commodity> findAll(){
-		return commodityDao.findAll(new Commodity());
+	@Autowired
+	CommodityDao commodityDao;
+
+	public List<Commodity> findAll() {
+		return commodityDao.findAll();
 	}
-	
-	public void save(Commodity commodity){
+
+	public void save(Commodity commodity) {
 		commodityDao.saveOrUpdate(commodity);
 	}
 }
