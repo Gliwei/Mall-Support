@@ -9,9 +9,13 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.apache.commons.lang3.StringUtils;
+import org.codehaus.jackson.JsonParser.NumberType;
+
 import com.lw.core.entity.BaseEntity;
+import com.lw.core.util.Operator;
 import com.lw.core.util.Pageable;
-import com.lw.core.util.Query;
+import com.lw.core.util.QueryCondition;
 
 public class BaseDao<T extends BaseEntity, ID extends Serializable> {
 
@@ -57,38 +61,16 @@ public class BaseDao<T extends BaseEntity, ID extends Serializable> {
 	}
 	
 	
-	public Pageable<T> findByPage(Pageable<T> page, List<Query> querys) {
-		List<T> list = em.createQuery("from "+clazz.getSimpleName())
+	@SuppressWarnings("unchecked")
+	public Pageable<T> findByPage(Pageable<T> page, QueryCondition query) {
+		String sql = "from " + clazz.getSimpleName();
+		if(StringUtils.isNotBlank(query.getSql())){
+			sql += " where "+query.getSql();
+		}
+		System.out.println(sql);
+		List<T> list = em.createQuery(sql)
 				.setFirstResult(page.getStartRow()).setMaxResults(page.getRows()).getResultList();
 		page.setList(list);
 		return page;
-	}
-	
-	public static String getSQL(List<Query> querys, String ao){
-		StringBuilder sql = new StringBuilder();
-		for(Query q : querys){
-			sql.append(" ");
-			sql.append(q.getPropertyName());
-			sql.append(q.getOperator());
-			sql.append(q.getPropertyValue());
-			sql.append(" ");
-			sql.append(ao);
-		}
-		
-		return sql.substring(0, sql.lastIndexOf(ao)).toString();
-	}
-	
-	public static void main(String[] args) {
-		List<Query> list = new ArrayList<Query>();
-		Query q1 = new Query("title", "=", "iPhone");
-		Query q2 = new Query("price", "<", "4800");
-		Query q3 = new Query("color", "=", "深空灰");
-		
-		list.add(q1);
-		list.add(q2);
-		list.add(q3);
-		
-		String sql = BaseDao.getSQL(list, "OR");
-		System.err.println(sql);
 	}
 }
