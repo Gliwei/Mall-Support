@@ -19,7 +19,7 @@ $(function(){
 </script>
 </head>
 <body>
-	<h1>Mall</h1>
+	<h1>Local</h1>
 	<form id="search">
 		<input name="title" data-op="LIKE"/>
 		<input name="price" data-op="EQ"/>
