@@ -19,6 +19,7 @@ $(function(){
 </script>
 </head>
 <body>
+	<h1>GitHub</h1>
 	<form id="search">
 		<input name="title" data-op="LIKE"/>
 		<input name="price" data-op="EQ"/>
