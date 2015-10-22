@@ -5,8 +5,8 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
 	      <properties>
 	         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
 	         <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-	         <!-- <property name="hibernate.connection.url" value="jdbc:mysql://10.211.55.5:3306/MYDB"/> -->
-	         <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/mall"/>
+	         <property name="hibernate.connection.url" value="jdbc:mysql://10.211.55.5:3306/mall"/>
+	         <!-- <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/mall"/> -->
 	         <property name="hibernate.connection.username" value="root"/>
 	         <property name="hibernate.connection.password" value="123456"/>
 	         <property name="hibernate.max_fetch_depth" value="3"/>

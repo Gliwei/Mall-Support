@@ -7,6 +7,9 @@
 	text-decoration:none;
 	color: inherit;
 }
+body {
+	font: 14px/1.5 tahoma,arial,"Hiragino Sans GB","瀹嬩綋",sans-serif;
+}
 /**************** 标题和标题栏的搜索框、按钮样式 **************/
 .c-tit {
 	font-size: 20px;

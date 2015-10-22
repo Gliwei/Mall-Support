@@ -6,6 +6,7 @@
 }
 body {
 	font: 14px/1.5 tahoma,arial,"Hiragino Sans GB","瀹嬩綋",sans-serif;
+	background-color: #F1F1F1;
 }
 a {
 	text-decoration: none;
@@ -24,7 +25,7 @@ a:hover {
 	width: 100%;
 	opacity: 0.9;
 }
-.container {
+.g-container {
 	padding-top: 40px;
 }
 .footer {
@@ -45,16 +46,22 @@ div.base {
 div.inner {
 	padding: 10px;
 }
-.container .nav {
+.g-container .nav {
 	float: left;
 	width: 220px;
 	height: 100%;
 	background-color: #F1F1F1;
+	position: fixed;
+	overflow: auto;
 }
-.container .content {
-	background-color: #FFFFFF;	
+.g-container .content {
+	background-color: #FFFFFF;
 }
-.container .ml {
+.g-container .content iframe{
+	width: 100%;
+	border: none;
+}
+.g-container .ml {
 	margin-left: 220px;
 }
 .green {
