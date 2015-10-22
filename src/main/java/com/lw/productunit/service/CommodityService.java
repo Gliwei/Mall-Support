@@ -1,13 +1,13 @@
-package com.lw.core.service;
+package com.lw.productunit.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lw.core.dao.CommodityDao;
-import com.lw.core.entity.Commodity;
 import com.lw.core.util.Pageable;
+import com.lw.productunit.dao.CommodityDao;
+import com.lw.productunit.entity.Commodity;
 
 @Service
 public class CommodityService {

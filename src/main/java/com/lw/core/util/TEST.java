@@ -1,17 +1,13 @@
 package com.lw.core.util;
 
-import java.math.BigDecimal;
-
-import com.lw.core.dao.BaseDao;
-import com.lw.core.entity.Commodity;
 
 public class TEST {
 
 	public static void main(String[] args) {
-		TEST.test2();
+		// TEST.test2();
 	}
 	
-	public static void test2(){
+	/*public static void test2(){
 		Commodity c = new Commodity();
 		c.setTitle("iMac");
 		c.setCostPrice(new BigDecimal(300));
@@ -23,7 +19,7 @@ public class TEST {
 		
 		BaseDao<Commodity, Integer> bd = new BaseDao<Commodity, Integer>(Commodity.class);
 		bd.findByPage(null, q1.and(q2));
-	}
+	}*/
 	
 	public static void test1(){
 		QueryCondition q1 = new QueryCondition("title", Operator.LIKE, "iPhone");

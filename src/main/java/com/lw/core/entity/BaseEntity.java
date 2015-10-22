@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.apache.commons.lang3.StringUtils;
@@ -17,7 +19,9 @@ public abstract class BaseEntity {
 	private Integer id;
 	private Integer version;
 	private String lastOperator;// 操作者
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createTime;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastModifyTime;
 
 	@Transient

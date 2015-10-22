@@ -1,0 +1,147 @@
+/* CSS Document */
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body {
+	font: 14px/1.5 tahoma,arial,"Hiragino Sans GB","瀹嬩綋",sans-serif;
+}
+a {
+	text-decoration: none;
+	color: #666;
+}
+a:hover {
+	color: #333;
+}
+.header {
+	background-color: #FAFAFA;
+	height: 40px;
+	line-height: 40px;
+
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	opacity: 0.9;
+}
+.container {
+	padding-top: 40px;
+}
+.footer {
+	background-color: #FAFAFA;
+	width: 100%;
+}
+/** 如果需要头部和底部宽度100%
+.header .base, .footer .base {
+	width: 100%;
+}**/
+div.base {
+	/*为了使内部的float元素也可以撑开此div*/
+	display: table;
+	width: 100%;
+	min-width: 220px;
+	margin: 0 auto;
+}
+div.inner {
+	padding: 10px;
+}
+.container .nav {
+	float: left;
+	width: 220px;
+	height: 100%;
+	background-color: #F1F1F1;
+}
+.container .content {
+	background-color: #FFFFFF;	
+}
+.container .ml {
+	margin-left: 220px;
+}
+.green {
+	background-color: green;
+}
+.blur {   
+    filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+    
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+       -moz-filter: blur(10px);
+        -ms-filter: blur(10px);    
+            filter: blur(10px);
+    
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+/******************************************/
+.header .logo-box {
+	float: left;
+	width: 220px;
+	background-color: #F1F1F1;
+
+	text-align: center;
+}
+.header .menu-box {
+	margin-left: 220px;
+	height: 40px;
+}
+.header ul.right-menu {
+	float: right;
+}
+.header ul.left-menu {
+	float: left;
+}
+.header ul li {
+	height: 38px;
+	display: inline-block;
+	padding: 0 5px;
+	margin: 0 5px;
+	position: relative;
+	cursor: pointer;
+}
+.header ul li:hover {
+	border-bottom: 2px blue solid;
+}
+.header ul li i {
+	font-size: 24px;
+	position: relative;
+	top: 3px;
+	margin: 0 4px;
+}
+/*******************************************/
+.nav .left-nav {
+}
+.left-nav .item .item-title {
+	background-color: #FAFAFA;
+	color: #666;
+	font-size: 16px;
+	padding-left: 20px;
+	border-top: 1px solid #EDEDED;
+	border-bottom: 1px solid #EDEDED;
+	border-left: 2px solid blue;
+	height: 30px;
+	line-height: 30px;
+}
+.left-nav .item ul li {
+	display: block;
+	padding: 5px;
+	margin-left: 40px;
+}
+.nav .tool-bar {
+	font-size: 20px;
+	color: #F1F1F1;
+	background-color: #999;
+	padding: 0 10px;
+	height: 30px;
+}
+.nav .tool-bar i {
+	margin: 15px 5px;
+	cursor: pointer;
+}
+.nav .nav-search input {
+	font-size: 14px;	
+	display: block;
+	padding: 0;
+	margin: 0;
+	height: 30px;
+	width: 100%;
+	border: none;
+	background-color: #FAFAFA;
+}

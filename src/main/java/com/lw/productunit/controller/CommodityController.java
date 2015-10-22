@@ -1,4 +1,4 @@
-package com.lw.core.controller;
+package com.lw.productunit.controller;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.lw.core.entity.Commodity;
-import com.lw.core.service.CommodityService;
 import com.lw.core.util.Pageable;
+import com.lw.productunit.entity.Commodity;
+import com.lw.productunit.service.CommodityService;
 
 @Controller
 @RequestMapping("/c")
