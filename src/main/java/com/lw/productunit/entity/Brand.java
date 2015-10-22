@@ -16,14 +16,17 @@ import com.lw.core.entity.BaseEntity;
  */
 @Entity
 @Table(name = "brand", catalog = "mall")
-public class Brand extends BaseEntity implements java.io.Serializable {
+public class Brand extends BaseEntity {
 
+	private static final long serialVersionUID = -3188459327265975714L;
+	
 	private String name;
 	private String enName;
 	private String logoBigUrl;
 	private String logoSamllUrl;
 	private String description;
-	private Set<Product> products = new HashSet<Product>(0);
+	
+	//private Set<Product> products = new HashSet<Product>(0);
 
 	@Column(name = "name", nullable = false, length = 30)
 	public String getName() {
@@ -70,13 +73,13 @@ public class Brand extends BaseEntity implements java.io.Serializable {
 		this.description = description;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand")
-	public Set getProducts() {
+	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand")
+	public Set<Product> getProducts() {
 		return this.products;
 	}
 
-	public void setProducts(Set products) {
+	public void setProducts(Set<Product> products) {
 		this.products = products;
-	}
+	}*/
 
 }

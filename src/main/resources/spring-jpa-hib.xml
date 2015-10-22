@@ -26,18 +26,19 @@
 
 	<tx:annotation-driven transaction-manager="txManager" />
 	
-	<!-- <aop:config>
-		<aop:pointcut expression="execution(public * com.tieba.service.*.*(..))"
+	<aop:config>
+		<aop:pointcut expression="execution(public * com.lw.*.service.*.*(..))"
 			id="businessService" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="businessService" />
 	</aop:config>
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-			get开头的方法不需要在事务中运行 。 有些情况是没有必要使用事务的，比如获取数据。开启事务本身对性能是有一定的影响的
+			<!-- get开头的方法不需要在事务中运行 。 有些情况是没有必要使用事务的，比如获取数据。开启事务本身对性能是有一定的影响的 -->
 			<tx:method name="get*" read-only="true" propagation="NOT_SUPPORTED" />
-			其他方法在实务中运行
+			<tx:method name="find*" read-only="true" propagation="NOT_SUPPORTED" />
+			<!-- 其他方法在实务中运行 -->
 			<tx:method name="*" /> 
 		</tx:attributes>
-	</tx:advice> -->
+	</tx:advice>
 
 </beans>

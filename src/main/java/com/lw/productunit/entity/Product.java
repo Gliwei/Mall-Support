@@ -18,15 +18,17 @@ import com.lw.core.entity.BaseEntity;
  */
 @Entity
 @Table(name = "product", catalog = "mall")
-public class Product extends BaseEntity implements java.io.Serializable {
+public class Product extends BaseEntity {
 
+	private static final long serialVersionUID = 7599772729394822540L;
+	
 	private Category category;
 	private Brand brand;
 	private String spu;
 	private String title;
 	private String subtitle;
 	private String htmlDescription;
-	private Set commodities = new HashSet(0);
+	private Set<Commodity> commodities = new HashSet<Commodity>(0);
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "categoryId")
@@ -85,11 +87,11 @@ public class Product extends BaseEntity implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-	public Set getCommodities() {
+	public Set<Commodity> getCommodities() {
 		return this.commodities;
 	}
 
-	public void setCommodities(Set commodities) {
+	public void setCommodities(Set<Commodity> commodities) {
 		this.commodities = commodities;
 	}
 

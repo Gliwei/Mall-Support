@@ -1,21 +1,11 @@
 package com.lw.productunit.entity;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-
-import static javax.persistence.GenerationType.IDENTITY;
-
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Version;
 
 import com.lw.core.entity.BaseEntity;
 
@@ -24,8 +14,10 @@ import com.lw.core.entity.BaseEntity;
  */
 @Entity
 @Table(name = "commodity2propertyitem", catalog = "mall")
-public class Commodity2propertyitem extends BaseEntity implements java.io.Serializable {
+public class Commodity2propertyitem extends BaseEntity {
 
+	private static final long serialVersionUID = -7505036257199880155L;
+	
 	private Commodity commodity;
 	private Propertyitem propertyitem;
 	private String propertyName;

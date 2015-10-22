@@ -28,11 +28,16 @@ public class BrandController {
 	public String list(@PathVariable("p") int pageNo, Model m){
 		Pageable<Brand> pageable = brandService.findByPage(pageNo);
 		m.addAttribute("pageable", pageable);
-		return "index";
+		return "brand-list";
 	}
 	
 	@RequestMapping("/addpage")
-	public String addPage(){
+	public String addPage(Model m, Integer id){
+		if(id!=null){
+			Brand brand = brandService.findById(id);
+			m.addAttribute("brand", brand);
+		}
+		m.addAttribute("msg", "");
 		return "brand";
 	}
 	
@@ -40,6 +45,6 @@ public class BrandController {
 	public String add(Brand brand, Model m){
 		brandService.save(brand);
 		m.addAttribute("msg", "Success");
-		return "";
+		return "brand";
 	}
 }

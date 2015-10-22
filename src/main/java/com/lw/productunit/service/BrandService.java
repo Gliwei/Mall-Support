@@ -14,6 +14,10 @@ public class BrandService {
 	@Autowired
 	BrandDao barndDao;
 
+	public Brand findById(int id){
+		return barndDao.findById(id);
+	}
+	
 	public List<Brand> findAll() {
 		return barndDao.findAll();
 	}

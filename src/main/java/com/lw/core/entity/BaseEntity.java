@@ -13,16 +13,15 @@ import javax.persistence.Transient;
 import org.apache.commons.lang3.StringUtils;
 
 @MappedSuperclass
-public abstract class BaseEntity {
-	@Id
-	@GeneratedValue
-	private Integer id;
-	private Integer version;
-	private String lastOperator;// 操作者
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date createTime;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date lastModifyTime;
+public abstract class BaseEntity implements java.io.Serializable {
+	
+	private static final long serialVersionUID = 6960810129594372036L;
+	
+	Integer id;
+	Integer version;
+	String lastOperator;// 操作者
+	Date createTime;
+	Date lastModifyTime;
 
 	@Transient
 	public boolean isNew() {
@@ -30,6 +29,8 @@ public abstract class BaseEntity {
 		return id == null || StringUtils.isBlank(String.valueOf(id));
 	}
 
+	@Id
+	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}
@@ -53,7 +54,8 @@ public abstract class BaseEntity {
 	public void setLastOperator(String lastOperator) {
 		this.lastOperator = lastOperator;
 	}
-
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -62,6 +64,7 @@ public abstract class BaseEntity {
 		this.createTime = createTime;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getLastModifyTime() {
 		return lastModifyTime;
 	}
