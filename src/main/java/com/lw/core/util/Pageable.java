@@ -7,6 +7,8 @@ public class Pageable<T> {
 	private int rows;
 	// 当前页
 	private int page;
+	// 总记录数
+	private int count;
 	// 总页数
 	private int pages;
 	// 开始行
@@ -18,7 +20,7 @@ public class Pageable<T> {
 	private Pageable() {}
 	
 	public Pageable(int page) {
-		this(page, 10);
+		this(page, 15);
 	}
 	
 	public Pageable(int page, int rows) {
@@ -56,6 +58,15 @@ public class Pageable<T> {
 	}
 	public void setList(List<T> list) {
 		this.list = list;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+		this.setPages(count/this.getRows());
 	}
 	
 }

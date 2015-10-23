@@ -1,13 +1,13 @@
 package com.lw.productunit.entity;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.apache.commons.lang3.StringUtils;
 
 import com.lw.core.entity.BaseEntity;
 
@@ -28,6 +28,17 @@ public class Brand extends BaseEntity {
 	
 	//private Set<Product> products = new HashSet<Product>(0);
 
+	public Map<String, String> validation(){
+		Map<String, String> map = new HashMap<String, String>();
+		if(StringUtils.isBlank(name)){
+			map.put("neme", "品牌名不能为空");
+		}
+		if(StringUtils.isBlank(logoBigUrl)){
+			map.put("logoBigUrl", "品牌logo名不能为空");
+		}
+		return map;
+	};
+	
 	@Column(name = "name", nullable = false, length = 30)
 	public String getName() {
 		return this.name;

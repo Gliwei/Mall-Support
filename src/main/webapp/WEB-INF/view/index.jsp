@@ -6,10 +6,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>Mall Support System</title>
 <link href="${root}css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="${root}css/index.css" />
-<script type="text/javascript" src="${root}js/jquery-1.7.1.js"></script>
+<script src="${root}js/jquery-2.1.4.js"></script>
 <script type="text/javascript">
 	// JavaScript Document
 	$(function() {
@@ -40,22 +40,19 @@
 	function loadPage(url, node) {
 		var main = $(".content .inner iframe");
 		main.attr("src", url);
-		/* $.post(url, function(result) {
-			var main = $(".content .inner");
-			main.html(result);
-			main.hide(0).fadeIn(300);
-			console.info(main);
-			$(".nav li").css("background-color", "inherit");
-			$(node).css("background-color", "#FFF");
-		}, "html"); */
+		$(".nav li").css("background-color", "inherit");
+		$(node).css("background-color", "#FFF");
 	}
-	function iFrameHeight() {
-        var ifm= document.getElementById("iframepage");
-        var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;
-        if(ifm != null && subWeb != null) {
-        	ifm.height = subWeb.body.scrollHeight;
-        }
-    }
+	
+	function resizeIframe(obj) {
+		obj.style.height = 0;
+
+		var innerH = $(window).height() - 60;//60 为 header高度40 + inner padding 20;
+		var height = obj.contentWindow.document.body.scrollHeight;
+		if(height<innerH)height=innerH;
+		
+		obj.style.height = height + 'px';
+	}
 </script>
 </head>
 
@@ -91,7 +88,7 @@
 							<a href="#">货品与分类</a>
 						</div>
 						<ul>
-							<li url="${root}brand/list/1"><a href="#">品牌管理</a></li>
+							<li url="${root}brand/list"><a href="#">品牌管理</a></li>
 							<li url="table-2.html"><a href="#">商品管理</a></li>
 							<li><a href="#">分类管理</a></li>
 						</ul>
@@ -110,7 +107,8 @@
 			</div>
 			<div class="content ml">
 				<div class="inner">
-					<iframe src="${root}brand/addpage" id="iframepage" onLoad="iFrameHeight()"></iframe>
+					<iframe src="${root}/welcome" id="iframepage" frameborder="0" scrolling="no" 
+						onLoad="resizeIframe(this)"></iframe>
 				</div>
 			</div>
 		</div>

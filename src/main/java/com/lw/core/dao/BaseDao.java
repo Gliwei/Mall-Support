@@ -1,19 +1,15 @@
 package com.lw.core.dao;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.apache.commons.lang3.StringUtils;
-import org.codehaus.jackson.JsonParser.NumberType;
 
 import com.lw.core.entity.BaseEntity;
-import com.lw.core.util.Operator;
 import com.lw.core.util.Pageable;
 import com.lw.core.util.QueryCondition;
 
@@ -27,6 +23,11 @@ public class BaseDao<T extends BaseEntity, ID extends Serializable> {
 		this.clazz = clazz;
 	}
 
+	public int count(){
+		Object count = em.createQuery("select count(id) from "+clazz.getSimpleName()).getSingleResult();
+		return Integer.parseInt(count.toString());
+	}
+	
 	public void saveOrUpdate(T entity) {
 		if (entity == null) {
 			throw new NullPointerException(this.getClass().getName()
@@ -54,8 +55,11 @@ public class BaseDao<T extends BaseEntity, ID extends Serializable> {
 
 	@SuppressWarnings("unchecked")
 	public Pageable<T> findByPage(Pageable<T> page) {
+		int count = this.count();
+		if(count <= 0) return page;
+		page.setCount(count);
 		List<T> list = em.createQuery("from "+clazz.getSimpleName())
-				.setFirstResult(page.getStartRow()).setMaxResults(page.getRows()).getResultList();
+				.setFirstResult(page.getStartRow()).setMaxResults(page.getStartRow()+page.getRows()).getResultList();
 		page.setList(list);
 		return page;
 	}

@@ -49,7 +49,7 @@
 					$(this).find("i").attr("class","icon-angle-right");
 					ltd.children().show();
 					mopen = true;
-					$(this).find("#text").html("管理");
+					$(this).find("#text").html("收起");
 				});
 			}
         });
@@ -60,7 +60,7 @@
         });
 		
 		//鼠标经过标题高亮显示列
-		$("table.simple-table th").hover(function(){
+		/* $("table.simple-table th").hover(function(){
 			var idx = $(this).index();
 			$(this).parent().parent().parent()//table
 				.find("td,th").filter(":nth-child(" + (idx+1) + ")")
@@ -70,7 +70,7 @@
 			$(this).parent().parent().parent()//table
 				.find("td,th").filter(":nth-child(" + (idx+1) + ")")
 				.removeClass("th-hover");
-		});
+		}); */
 		
 		//表格数据检索（过滤，高亮显示）
 		var allRows = $("table.simple-table tbody td");
@@ -127,7 +127,7 @@
         <span class="right-icon refresh" title="刷新">
             <i class="icon-refresh"></i>
         </span>
-        <a href="${root}brand/addpage">
+        <a href="${root}brand/editpage">
         <span class="right-icon add" title="添加">
             <i class="icon-plus"></i>
         </span>
@@ -165,7 +165,7 @@
                 <td>${brand.enName}</td>
                 <td>${brand.description}</td>
                 <td>
-                	<i class="icon-edit" onclick="loadPage('${root}brand/addpage?id=${brand.id}')"></i>
+                	<a href="${root}brand/editpage?id=${brand.id}"><i class="icon-edit"></i></a>
                 	<i class="icon-remove"></i>
                	</td>
             </tr>
@@ -175,23 +175,25 @@
     <div class="page-ctrl">
     	<span class="pageinfo">
         	<i class="icon-caret-right"></i>
-        	共<span class="num">203</span>条记录 , 
-            每页<input class="page-size" name="pageSize" value="20" title="改变每页显示的条数,回车跳转" />条 , 
-            共<span class="num">20</span>页
+        	共<span class="num">${pageable.count}</span>条记录 , 
+            每页<input class="page-size" name="pageSize" value="${pageable.rows}" title="改变每页显示的条数,回车跳转" />条 , 
+            共<span class="num">${pageable.pages}</span>页
         </span>
         <span class="page"><i class="icon-fast-backward"></i></span>
         <span class="prev"><i class="icon-backward"></i> 上一页</span>
-        <span class="page">1</span>
+        <span class="pageon">1</span>
         <span class="page">2</span>
         <span class="page">3</span>
         <span class="page">4</span>
-        <span class="pageon">5</span>
+        <span class="page">5</span>
         <span class="page">6</span>
         <span class="page">7</span>
         <span class="page">8</span>
         <span class="page">9</span>
         <span class="page">10</span>
-        <span class="next">下一页 <i class="icon-forward"></i></span>
+        <a href="${root}brand/list/${pageable.page+1}">
+        	<span class="next">下一页 <i class="icon-forward"></i></span>
+       	</a>
         <span class="page"><i class="icon-fast-forward"></i></span>
     </div>
 </body>

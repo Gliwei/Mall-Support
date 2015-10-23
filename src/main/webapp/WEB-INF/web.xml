@@ -14,6 +14,18 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    
+    <servlet>
+
+	<!-- 解决Jetty启动中无法修改静态文件的问题 -->
+	<servlet-name>default</servlet-name> 
+		<servlet-class>org.eclipse.jetty.servlet.DefaultServlet</servlet-class> 
+		<init-param> 
+			<param-name>useFileMappedBuffer</param-name> 
+			<param-value>false</param-value> 
+		</init-param> 
+		<load-on-startup>0</load-on-startup> 
+	</servlet>
 
     <servlet-mapping>
        <servlet-name>springmvc</servlet-name>

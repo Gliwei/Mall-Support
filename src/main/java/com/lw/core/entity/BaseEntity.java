@@ -28,6 +28,8 @@ public abstract class BaseEntity implements java.io.Serializable {
 		Serializable id = getId();
 		return id == null || StringUtils.isBlank(String.valueOf(id));
 	}
+	
+	// public abstract String validation();
 
 	@Id
 	@GeneratedValue
