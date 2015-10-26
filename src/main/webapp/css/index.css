@@ -3,9 +3,12 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 body {
-	font: 14px/1.5 tahoma,arial,"Hiragino Sans GB","瀹嬩綋",sans-serif;
+	font: 14px/1.5 tahoma,arial,"Hiragino Sans GB","微软雅黑",sans-serif;
 	background-color: #F1F1F1;
 }
 a {
@@ -44,7 +47,7 @@ div.base {
 	margin: 0 auto;
 }
 div.inner {
-	padding: 10px;
+	padding: 25px 10px 10px 10px;
 }
 .g-container .nav {
 	float: left;
@@ -79,6 +82,9 @@ div.inner {
 }
 /******************************************/
 .header .logo-box {
+	font-size: 22px;
+	line-height: 40px;
+	height: 40px;
 	float: left;
 	width: 220px;
 	background-color: #F1F1F1;
@@ -87,7 +93,6 @@ div.inner {
 }
 .header .menu-box {
 	margin-left: 220px;
-	height: 40px;
 }
 .header ul.right-menu {
 	float: right;
@@ -96,7 +101,6 @@ div.inner {
 	float: left;
 }
 .header ul li {
-	height: 38px;
 	display: inline-block;
 	padding: 0 5px;
 	margin: 0 5px;
@@ -107,10 +111,7 @@ div.inner {
 	border-bottom: 2px blue solid;
 }
 .header ul li i {
-	font-size: 24px;
-	position: relative;
-	top: 3px;
-	margin: 0 4px;
+/* 	font-size: 18px; */
 }
 /*******************************************/
 .nav .left-nav {
@@ -123,12 +124,12 @@ div.inner {
 	border-top: 1px solid #EDEDED;
 	border-bottom: 1px solid #EDEDED;
 	border-left: 2px solid blue;
-	height: 30px;
-	line-height: 30px;
+	height: 32px;
+	line-height: 32px;
 }
 .left-nav .item ul li {
 	display: block;
-	padding: 5px;
+	padding: 4px 0 4px 15px;
 	margin-left: 40px;
 }
 .nav .tool-bar {
@@ -136,7 +137,7 @@ div.inner {
 	color: #F1F1F1;
 	background-color: #999;
 	padding: 0 10px;
-	height: 30px;
+	height: 34px;
 }
 .nav .tool-bar i {
 	margin: 15px 5px;
@@ -147,7 +148,7 @@ div.inner {
 	display: block;
 	padding: 0;
 	margin: 0;
-	height: 30px;
+	height: 34px;
 	width: 100%;
 	border: none;
 	background-color: #FAFAFA;

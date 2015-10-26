@@ -7,7 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Mall Support System</title>
-<link href="${root}css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<!-- 字体图标 -->
+<link href="${root}assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="${root}css/index.css" />
 <script src="${root}js/jquery-2.1.4.js"></script>
 <script type="text/javascript">
@@ -33,7 +34,7 @@
 			$("div.nav").slideToggle(0, function() {
 				content.toggleClass("ml");
 			});
-			ths.find("i").toggleClass("icon-chevron-sign-right");
+			ths.find("i").toggleClass("fa-resize-small");
 		});
 	});
 
@@ -59,11 +60,11 @@
 <body>
 	<div class="header">
 		<div class="base">
-			<div class="logo-box">管理平台</div>
+			<div class="logo-box">Platform</div>
 			<div class="menu-box">
 				<ul class="left-menu">
-					<li id="hide-left"><i class="icon-chevron-sign-left"></i>隐藏</li>
-					<li>登陆页</li>
+					<li id="hide-left">&nbsp;<i class="fa fa-resize-full"></i></li>
+					<li>Login</li>
 				</ul>
 				<ul class="right-menu">
 					<li>Conan</li>
@@ -77,7 +78,7 @@
 			<div class="nav">
 				<div class="left-nav">
 					<div class="nav-search">
-						<input placeholder="菜单搜索" />
+						<input placeholder="Menu search" />
 					</div>
 					<div class="tool-bar">
 						<span><i class="icon-screenshot"></i></span> <span><i
@@ -85,21 +86,21 @@
 					</div>
 					<div class="item">
 						<div class="item-title" current="true">
-							<a href="#">货品与分类</a>
+							<a href="#">Product Unit</a>
 						</div>
 						<ul>
-							<li url="${root}brand/list"><a href="#">品牌管理</a></li>
-							<li url="table-2.html"><a href="#">商品管理</a></li>
-							<li><a href="#">分类管理</a></li>
+							<li url="${root}brand/list"><a href="#">Brand</a></li>
+							<li url="table-2.html"><a href="#">Commodity</a></li>
+							<li><a href="#">Category</a></li>
 						</ul>
 					</div>
 					<div class="item">
 						<div class="item-title">
-							<a href="#">订单与物流</a>
+							<a href="#">Order Unit</a>
 						</div>
 						<ul>
-							<li><a href="#">订单管理</a></li>
-							<li><a href="#">待添加</a></li>
+							<li><a href="#">Order</a></li>
+							<li><a href="#">adding..</a></li>
 							
 						</ul>
 					</div>

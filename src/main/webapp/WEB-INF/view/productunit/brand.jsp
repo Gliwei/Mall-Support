@@ -7,11 +7,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>品牌</title>
-<link href="${root}bootstrap/css/bootstrap.css" rel="stylesheet">
+<!-- bootstrap -->
+<link href="${root}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- assets 扁平化UI -->
+<link href="${root}assets/css/style-metronic.css" rel="stylesheet"/>
+<link href="${root}assets/css/style.css" rel="stylesheet" type="text/css"/>
+<!-- 字体图标 -->
+<link href="${root}assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<!-- 自定义组件/样式 -->
 <link href="${root}css/common-ui.css" rel="stylesheet" type="text/css" />
-<link href="${root}css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <script src="${root}js/jquery-2.1.4.js"></script>
 <script src="${root}bootstrap/js/bootstrap.min.js"></script>
+<script src="${root}js/common-ui.js"></script>
 <%-- <script src="${root}jquery-validation/jquery.validate.js"></script> --%>
 <script type="text/javascript">
 	//$("#brandForm").validate();
@@ -32,66 +39,88 @@
 			</div>
 		</c:if>
 		<c:if test="${empty msg}">
-			<div class="c-tit" style="margin-bottom: 50px;">
+			<div class="c-tit" style="margin-bottom: 10px;">
 		        <span class="text">
 		        	<i class="icon-bookmark"></i>
-		            <span>品牌编辑</span>
+		            <span>Brand Edit</span>
 		        </span>
 		        <span class="right-icon refresh" title="刷新">
-		            <i class="icon-refresh"></i>
+		            <i class="fa fa-refresh"></i>
 		        </span>
-		        <span class="right-icon filter" title="过滤当前页数据">
-		            <i class="icon-filter" id="fbtn"></i>
-		            <span class="filter-box" style="display:none">
-		            	<input type="text" id="finp" placeholder="请输入" />
-		        	</span>
+		        <span class="right-icon bak" title="返回">
+		            <i class="fa fa-chevron-left"></i>
 		        </span>
 		    </div>
 		    
-			<form class="form-horizontal" role="form" action="${root}brand/save"
-				method="post" id="brandForm">
-				<input type="hidden" name="id" value="${brand.id}">
-				<div class="form-group">
-					<label for="name" class="col-sm-2 control-label">品牌名</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="name" name="name"
-							value="${brand.name}" required>
+			<div class="portlet-body form">
+			<form class="form-horizontal form-bordered form-small" role="form" action="${root}brand/save"
+				method="post" id="brandForm"><!-- form-bordered -->
+				<div class="form-body">
+					<input type="hidden" name="id" value="${brand.id}">
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label">Big Logo</label>
+								<div class="controls">
+									<input type="url" class="form-control" id="logoBigUrl"
+										name="logoBigUrl" value="${brand.logoBigUrl}" required>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label">Samll Logo</label>
+								<div class="controls">
+									<input type="text" class="form-control" id="logoSamllUrl"
+								name="logoSamllUrl" value="${brand.logoSamllUrl}">
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="enName" class="col-sm-2 control-label">英文名</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="enName" name="enName"
-							value="${brand.enName}">
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label">Brand Name CH</label>
+								<div class="controls">
+									<input type="text" class="form-control" id="name" name="name"
+										value="${brand.name}" required>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label">Brand Name EN</label>
+								<div class="controls">
+									<input type="text" class="form-control" id="enName" name="enName"
+										value="${brand.enName}">
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="description" class="col-sm-2 control-label">description</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" id="description"
-							name="description" value="${brand.description}">
+					
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label">Description</label>
+								<div class="controls">
+									<textarea class="form-control" name="description" >${brand.description}</textarea>
+								</div>
+							</div>
+						</div>
 					</div>
+
 				</div>
-				<div class="form-group">
-					<label for="logoBigUrl" class="col-sm-2 control-label">logoBigUrl</label>
-					<div class="col-sm-6">
-						<input type="url" class="form-control" id="logoBigUrl"
-							name="logoBigUrl" value="${brand.logoBigUrl}" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="logoSamllUrl" class="col-sm-2 control-label">logoSamllUrl</label>
-					<div class="col-sm-6">
-						<input type="text" class="form-control" id="logoSamllUrl"
-							name="logoSamllUrl" value="${brand.logoSamllUrl}">
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-6">
-						<button type="submit" class="btn btn-default">Submit</button>
+				<div class="form-actions fluid">
+					<div class="col-md-offset-2 col-md-10">
+						<button type="submit" class="btn blue">Submit</button>
+						<button type="button" class="btn default">Cancel</button>                              
 					</div>
 				</div>
 			</form>
+			</div>
+
 		</c:if>
 	</div>
 </body>

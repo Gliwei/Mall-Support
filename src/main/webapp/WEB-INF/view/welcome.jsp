@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="${root}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${root}assets/css/style.css" rel="stylesheet" type="text/css"/>
 <script src="${root}js/jquery-2.1.4.js"></script>
 <script src="${root}bootstrap/js/bootstrap.min.js"></script>
 </head>
