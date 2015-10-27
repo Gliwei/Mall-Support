@@ -47,7 +47,7 @@ div.base {
 	margin: 0 auto;
 }
 div.inner {
-	padding: 25px 10px 10px 10px;
+	padding: 20px 10px 10px 10px;
 }
 .g-container .nav {
 	float: left;
@@ -111,7 +111,10 @@ div.inner {
 	border-bottom: 2px blue solid;
 }
 .header ul li i {
-/* 	font-size: 18px; */
+	font-size: 22px;
+	position: relative;
+	top: 3px;
+	margin: 0 4px;
 }
 /*******************************************/
 .nav .left-nav {
@@ -131,6 +134,11 @@ div.inner {
 	display: block;
 	padding: 4px 0 4px 15px;
 	margin-left: 40px;
+	cursor: pointer;
+	color: #666;
+}
+.left-nav .item ul li:hover {
+	color: #333;
 }
 .nav .tool-bar {
 	font-size: 20px;

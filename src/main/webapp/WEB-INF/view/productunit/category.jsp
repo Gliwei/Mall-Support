@@ -6,7 +6,7 @@
 <head>
 <base href="/mall-support/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>品牌</title>
+<title>edit page</title>
 <!-- bootstrap -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- assets 扁平化UI -->
@@ -21,7 +21,7 @@
 <script src="js/common-ui.js"></script>
 <%-- <script src="${root}jquery-validation/jquery.validate.js"></script> --%>
 <script type="text/javascript">
-	//$("#brandForm").validate();
+	//$("#categoryForm").validate();
 </script>
 </head>
 <body>
@@ -33,7 +33,7 @@
 					<p>Successful operation, next step</p>
 					<p>
 						<a class="btn btn-primary btn-lg" role="button"
-							href="${root}brand/list"> view list </a>
+							href="${root}category/list"> view list </a>
 					</p>
 				</div>
 			</div>
@@ -42,7 +42,7 @@
 			<div class="c-tit" style="margin-bottom: 10px;">
 		        <span class="text">
 		        	<i class="icon-bookmark"></i>
-		            <span>Brand Edit</span>
+		            <span>category Edit</span>
 		        </span>
 		        <span class="right-icon refresh" title="刷新">
 		            <i class="fa fa-refresh"></i>
@@ -53,48 +53,27 @@
 		    </div>
 		    
 			<div class="portlet-body form">
-			<form class="form-horizontal form-bordered form-small" role="form" action="brand/save"
-				method="post" id="brandForm"><!-- form-bordered -->
+			<form class="form-horizontal form-bordered form-small" role="form" action="category/save"
+				method="post" id="categoryForm"><!-- form-bordered -->
 				<div class="form-body">
-					<input type="hidden" name="id" value="${brand.id}">
+					<input type="hidden" name="id" value="${category.id}">
 					
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label class="control-label">Big Logo</label>
-								<div class="controls">
-									<input type="url" class="form-control" id="logoBigUrl"
-										name="logoBigUrl" value="${brand.logoBigUrl}" required>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label class="control-label">Samll Logo</label>
-								<div class="controls">
-									<input type="text" class="form-control" id="logoSamllUrl"
-								name="logoSamllUrl" value="${brand.logoSamllUrl}">
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label class="control-label">Brand Name CH</label>
+								<label class="control-label">Category Name</label>
 								<div class="controls">
 									<input type="text" class="form-control" id="name" name="name"
-										value="${brand.name}" required>
+										value="${category.name}" required>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label class="control-label">Brand Name EN</label>
+								<label class="control-label">Parent Category</label>
 								<div class="controls">
-									<input type="text" class="form-control" id="enName" name="enName"
-										value="${brand.enName}">
+									<input type="text" class="form-control" id="category.id" name="category.id"
+										value="${category.id}">
 								</div>
 							</div>
 						</div>
@@ -105,7 +84,7 @@
 							<div class="form-group">
 								<label class="control-label">Description</label>
 								<div class="controls">
-									<textarea class="form-control" name="description" >${brand.description}</textarea>
+									<textarea class="form-control" name="description" >${category.description}</textarea>
 								</div>
 							</div>
 						</div>

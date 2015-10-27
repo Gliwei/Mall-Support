@@ -20,7 +20,7 @@ public class Pageable<T> {
 	private Pageable() {}
 	
 	public Pageable(int page) {
-		this(page, 15);
+		this(page, 5);
 	}
 	
 	public Pageable(int page, int rows) {
@@ -66,7 +66,7 @@ public class Pageable<T> {
 
 	public void setCount(int count) {
 		this.count = count;
-		this.setPages(count/this.getRows());
+		this.setPages(count/this.getRows()+1);
 	}
 	
 }

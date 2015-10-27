@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="root" scope="session" value="/mall-support/" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<base href="/mall-support/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Mall Support System</title>
 <!-- 字体图标 -->
-<link href="${root}assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-<link rel="stylesheet" type="text/css" href="${root}css/index.css" />
-<script src="${root}js/jquery-2.1.4.js"></script>
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<script src="js/jquery-2.1.4.js"></script>
 <script type="text/javascript">
 	// JavaScript Document
 	$(function() {
@@ -34,7 +34,7 @@
 			$("div.nav").slideToggle(0, function() {
 				content.toggleClass("ml");
 			});
-			ths.find("i").toggleClass("fa-resize-small");
+			ths.find("i").toggleClass("icon-circle-arrow-right");
 		});
 	});
 
@@ -63,7 +63,7 @@
 			<div class="logo-box">Platform</div>
 			<div class="menu-box">
 				<ul class="left-menu">
-					<li id="hide-left">&nbsp;<i class="fa fa-resize-full"></i></li>
+					<li id="hide-left"><i class="icon-circle-arrow-left"></i></li>
 					<li>Login</li>
 				</ul>
 				<ul class="right-menu">
@@ -89,9 +89,9 @@
 							<a href="#">Product Unit</a>
 						</div>
 						<ul>
-							<li url="${root}brand/list"><a href="#">Brand</a></li>
-							<li url="table-2.html"><a href="#">Commodity</a></li>
-							<li><a href="#">Category</a></li>
+							<li url="brand/list">Brand</li>
+							<li url="category/list">Category</li>
+							<li url="welcome"><a href="#">Commodity</a></li>
 						</ul>
 					</div>
 					<div class="item">
@@ -101,14 +101,14 @@
 						<ul>
 							<li><a href="#">Order</a></li>
 							<li><a href="#">adding..</a></li>
-							
+							<li><a href="#">adding..</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="content ml">
 				<div class="inner">
-					<iframe src="${root}/welcome" id="iframepage" frameborder="0" scrolling="no" 
+					<iframe src="welcome" id="iframepage" frameborder="0" scrolling="no" 
 						onLoad="resizeIframe(this)"></iframe>
 				</div>
 			</div>

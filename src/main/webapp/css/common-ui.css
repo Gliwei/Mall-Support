@@ -41,53 +41,48 @@ body {
 	border-bottom: 2px solid #00C;
 }
 /**************标题栏 搜索框样式**************/
+.c-tit form {
+	display: inline;
+}
 .c-tit .search-box {
-	position: relative;
-	height: 20px;
+	margin-left: 0px;
+	margin-top: 8px;
+	border-bottom: 2px solid blue;
+	height: 27px;
 	display: inline-block;
 	line-height:normal;
 	font-size:14px;
 	font-weight:300;
-	margin-top: 10px;
-	margin-left:20px;
-	padding: 0 0 0 5px;
-	background-color: #F2F2F2;
-	border-radius: 2px;
+	background-color: #F1F1F1;
 	overflow: hidden;
 }
 .c-tit .search-box input[type=text] {
-	width: 70px;
+	width: 160px;
 	margin: 0;
+	padding: 0 5px;
 	border: 0 none;
-	background-color: #EBEBEB;
+	background-color: #F1F1F1;
 	height: 100%;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
 }
-.c-tit .search-box .sbtn {
-	display: block;
-	float: right;
+.c-tit .search-box input[type=text]:FOCUS {
+	outline: none;
+	background-color: #F3F3F3;
+}
+.c-tit .search-box button {
 	height: 100%;
+	border: 0 none;
+	display: inline-block;
 	background-color: #06F;
 	padding: 0 5px;
 	color: #FAFAFA;
 	cursor: pointer;
 }
-.c-tit .search-box .sbtn:hover {
-	background-color: #03F;
-	color: #FFFFFF;
+.c-tit .search-box button:FOCUS {
+	outline: none;
 }
-.c-tit .search-box .cbtn {
-	display: block;
-	float: right;
-	height: 100%;
-	background-color: #6C9;
-	padding: 0 5px;
-	color: #FAFAFA;
-	cursor: pointer;
-}
-.c-tit .search-box .cbtn:hover {
-	background-color: #6C6;
-	color: #FFFFFF;
+.c-tit .search-box button[type=reset] {
+	background-color: transparent;
+	color: green;
 }
 /*********标题栏 过滤框样式*****************/
 .c-tit .filter-box {

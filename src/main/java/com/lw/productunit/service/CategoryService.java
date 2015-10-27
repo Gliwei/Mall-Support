@@ -26,4 +26,8 @@ public class CategoryService {
 		Pageable<Category> pageable = new Pageable<Category>(pageNo);
 		return categoryDao.findByPage(pageable);
 	}
+
+	public Category findById(Integer id) {
+		return categoryDao.findById(id);
+	}
 }

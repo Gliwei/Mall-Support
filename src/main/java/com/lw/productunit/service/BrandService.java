@@ -13,6 +13,11 @@ import com.lw.productunit.entity.Brand;
 public class BrandService {
 	@Autowired
 	BrandDao barndDao;
+	
+	public Pageable<Brand> likeSearch(String fields, String value, Integer pageNo){
+		Pageable<Brand> pageable = new Pageable<Brand>(pageNo);
+		return barndDao.likeSearch(fields, value, pageable);
+	}
 
 	public Brand findById(int id){
 		return barndDao.findById(id);

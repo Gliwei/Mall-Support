@@ -22,7 +22,33 @@ public class BaseDao<T extends BaseEntity, ID extends Serializable> {
 	public BaseDao(Class<T> clazz) {
 		this.clazz = clazz;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public Pageable<T> likeSearch(String fields, String value, Pageable<T> page){
+		// fields = id/name/enName/description
+		// value = nike
+		String[] fieldArr = fields.split("/");
+		if(fieldArr.length<1)return null;
+		
+		StringBuilder where = new StringBuilder(" where ");
+		for(String field : fieldArr){
+			where.append(field).append(" like ").append("'%"+value+"%'").append(" OR ");
+		}
+		String sqlWhere = where.substring(0, where.lastIndexOf("OR"));
+		
+		page.setCount(count(sqlWhere));
+		
+		List<T> list = em.createQuery("from "+clazz.getSimpleName()+" "+sqlWhere)
+				.setFirstResult(page.getStartRow()).setMaxResults(page.getRows()).getResultList();
+		page.setList(list);
+		return page;
+	}
 
+	public int count(String sqlWhere){
+		Object count = em.createQuery("select count(id) from "+clazz.getSimpleName()+ " "+sqlWhere).getSingleResult();
+		return Integer.parseInt(count.toString());
+	}
+	
 	public int count(){
 		Object count = em.createQuery("select count(id) from "+clazz.getSimpleName()).getSingleResult();
 		return Integer.parseInt(count.toString());
@@ -59,7 +85,7 @@ public class BaseDao<T extends BaseEntity, ID extends Serializable> {
 		if(count <= 0) return page;
 		page.setCount(count);
 		List<T> list = em.createQuery("from "+clazz.getSimpleName())
-				.setFirstResult(page.getStartRow()).setMaxResults(page.getStartRow()+page.getRows()).getResultList();
+				.setFirstResult(page.getStartRow()).setMaxResults(page.getRows()).getResultList();
 		page.setList(list);
 		return page;
 	}
