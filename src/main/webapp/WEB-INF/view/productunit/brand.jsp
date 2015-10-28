@@ -21,7 +21,7 @@
 <script src="js/common-ui.js"></script>
 <%-- <script src="${root}jquery-validation/jquery.validate.js"></script> --%>
 <script type="text/javascript">
-	//$("#brandForm").validate();
+	//$("#entityForm").validate();
 </script>
 </head>
 <body>
@@ -54,9 +54,9 @@
 		    
 			<div class="portlet-body form">
 			<form class="form-horizontal form-bordered form-small" role="form" action="brand/save"
-				method="post" id="brandForm"><!-- form-bordered -->
+				method="post" id="entityForm"><!-- form-bordered -->
 				<div class="form-body">
-					<input type="hidden" name="id" value="${brand.id}">
+					<input type="hidden" name="id" value="${entity.id}">
 					
 					<div class="row">
 						<div class="col-md-6">
@@ -64,7 +64,7 @@
 								<label class="control-label">Big Logo</label>
 								<div class="controls">
 									<input type="url" class="form-control" id="logoBigUrl"
-										name="logoBigUrl" value="${brand.logoBigUrl}" required>
+										name="logoBigUrl" value="${entity.logoBigUrl}" required>
 								</div>
 							</div>
 						</div>
@@ -73,7 +73,7 @@
 								<label class="control-label">Samll Logo</label>
 								<div class="controls">
 									<input type="text" class="form-control" id="logoSamllUrl"
-								name="logoSamllUrl" value="${brand.logoSamllUrl}">
+								name="logoSamllUrl" value="${entity.logoSamllUrl}">
 								</div>
 							</div>
 						</div>
@@ -85,7 +85,7 @@
 								<label class="control-label">Brand Name CH</label>
 								<div class="controls">
 									<input type="text" class="form-control" id="name" name="name"
-										value="${brand.name}" required>
+										value="${entity.name}" required>
 								</div>
 							</div>
 						</div>
@@ -94,7 +94,7 @@
 								<label class="control-label">Brand Name EN</label>
 								<div class="controls">
 									<input type="text" class="form-control" id="enName" name="enName"
-										value="${brand.enName}">
+										value="${entity.enName}">
 								</div>
 							</div>
 						</div>
@@ -105,7 +105,7 @@
 							<div class="form-group">
 								<label class="control-label">Description</label>
 								<div class="controls">
-									<textarea class="form-control" name="description" >${brand.description}</textarea>
+									<textarea class="form-control" name="description" >${entity.description}</textarea>
 								</div>
 							</div>
 						</div>

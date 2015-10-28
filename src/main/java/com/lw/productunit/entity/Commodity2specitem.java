@@ -1,5 +1,7 @@
 package com.lw.productunit.entity;
 
+import java.util.Map;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -38,6 +40,12 @@ public class Commodity2specitem extends BaseEntity {
 
 	public void setCommodity(Commodity commodity) {
 		this.commodity = commodity;
+	}
+
+	@Override
+	public Map<String, String> validation() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

@@ -21,7 +21,7 @@
 <script src="js/common-ui.js"></script>
 <%-- <script src="${root}jquery-validation/jquery.validate.js"></script> --%>
 <script type="text/javascript">
-	//$("#categoryForm").validate();
+	//$("#entityForm").validate();
 </script>
 </head>
 <body>
@@ -53,10 +53,10 @@
 		    </div>
 		    
 			<div class="portlet-body form">
-			<form class="form-horizontal form-bordered form-small" role="form" action="category/save"
-				method="post" id="categoryForm"><!-- form-bordered -->
+			<form class="form-horizontal form-bordered form-small" role="form" action="entity/save"
+				method="post" id="entityForm"><!-- form-bordered -->
 				<div class="form-body">
-					<input type="hidden" name="id" value="${category.id}">
+					<input type="hidden" name="id" value="${entity.id}">
 					
 					<div class="row">
 						<div class="col-md-6">
@@ -64,7 +64,7 @@
 								<label class="control-label">Category Name</label>
 								<div class="controls">
 									<input type="text" class="form-control" id="name" name="name"
-										value="${category.name}" required>
+										value="${entity.name}" required>
 								</div>
 							</div>
 						</div>
@@ -72,8 +72,8 @@
 							<div class="form-group">
 								<label class="control-label">Parent Category</label>
 								<div class="controls">
-									<input type="text" class="form-control" id="category.id" name="category.id"
-										value="${category.id}">
+									<input type="text" class="form-control" id="entity.id" name="entity.id"
+										value="${entity.category.id}">
 								</div>
 							</div>
 						</div>
@@ -84,7 +84,7 @@
 							<div class="form-group">
 								<label class="control-label">Description</label>
 								<div class="controls">
-									<textarea class="form-control" name="description" >${category.description}</textarea>
+									<textarea class="form-control" name="description" >${entity.description}</textarea>
 								</div>
 							</div>
 						</div>

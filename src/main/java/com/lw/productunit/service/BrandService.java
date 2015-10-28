@@ -1,42 +1,21 @@
 package com.lw.productunit.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lw.core.util.Pageable;
+import com.lw.core.dao.BaseDao;
+import com.lw.core.service.BaseService;
 import com.lw.productunit.dao.BrandDao;
 import com.lw.productunit.entity.Brand;
 
 @Service
-public class BrandService {
+public class BrandService extends BaseService<Brand, Integer>{
 	@Autowired
 	BrandDao barndDao;
-	
-	public Pageable<Brand> likeSearch(String fields, String value, Integer pageNo){
-		Pageable<Brand> pageable = new Pageable<Brand>(pageNo);
-		return barndDao.likeSearch(fields, value, pageable);
-	}
 
-	public Brand findById(int id){
-		return barndDao.findById(id);
+	@Override
+	protected BaseDao<Brand, Integer> getEntityDao() {
+		return barndDao;
 	}
 	
-	public List<Brand> findAll() {
-		return barndDao.findAll();
-	}
-
-	public void save(Brand Brand) {
-		barndDao.saveOrUpdate(Brand);
-	}
-	
-	public Pageable<Brand> findByPage(int pageNo){
-		Pageable<Brand> pageable = new Pageable<Brand>(pageNo);
-		return barndDao.findByPage(pageable);
-	}
-	
-	public void delete(String brandId){
-		// TODO add is visible field
-	}
 }

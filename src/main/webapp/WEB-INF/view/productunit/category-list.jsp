@@ -20,12 +20,15 @@
         	<i class="icon-bookmark"></i>
             <span>Category List</span>
         </span>
+        <form action="category/search" method="post" id="search-form">
         <span class="search-box">
-            id: <input type="text" />
-            name: <input type="text" />
-            <span class="sbtn"><i class="icon-search"></i> search</span>
-            <span class="cbtn" title="清除搜索条件">&nbsp;<i class="icon-eraser"></i>&nbsp;</span>
+        	<input type="hidden" name="fields" value="id/name/description" />
+        	<input type="hidden" name="pageNo" value="1" placeholder="Enter keyword.."/>
+            <input type="text" name="kw" value="${kw}"/>
+            <button type="reset">&nbsp;<i class="icon-eraser"></i>&nbsp;</button>
+            <button type="submit"><i class="icon-search"></i> search</button>
         </span>
+        </form>
         <span class="right-icon refresh" title="刷新">
             <i class="icon-refresh"></i>
         </span>

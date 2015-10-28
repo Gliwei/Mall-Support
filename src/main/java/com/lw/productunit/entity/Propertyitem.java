@@ -1,6 +1,7 @@
 package com.lw.productunit.entity;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -53,6 +54,12 @@ public class Propertyitem extends BaseEntity {
 
 	public void setCommodity2propertyitems(Set<Commodity2propertyitem> commodity2propertyitems) {
 		this.commodity2propertyitems = commodity2propertyitems;
+	}
+
+	@Override
+	public Map<String, String> validation() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

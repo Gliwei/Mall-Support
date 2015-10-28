@@ -2,6 +2,8 @@ package com.lw.core.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,6 +25,9 @@ public abstract class BaseEntity implements java.io.Serializable {
 	Date createTime;
 	Date lastModifyTime;
 
+	@Transient
+	public abstract Map<String, String> validation();
+	
 	@Transient
 	public boolean isNew() {
 		Serializable id = getId();
