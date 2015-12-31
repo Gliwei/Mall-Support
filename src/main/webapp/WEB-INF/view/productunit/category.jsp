@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>edit page</title>
 <!-- bootstrap -->
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <!-- assets 扁平化UI -->
 <link href="assets/css/style-metronic.css" rel="stylesheet"/>
 <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
@@ -53,7 +53,7 @@
 		    </div>
 		    
 			<div class="portlet-body form">
-			<form class="form-horizontal form-bordered form-small" role="form" action="entity/save"
+			<form class="form-horizontal form-bordered form-small" role="form" action="category/save"
 				method="post" id="entityForm"><!-- form-bordered -->
 				<div class="form-body">
 					<input type="hidden" name="id" value="${entity.id}">
@@ -71,9 +71,16 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="control-label">Parent Category</label>
-								<div class="controls">
-									<input type="text" class="form-control" id="entity.id" name="entity.id"
-										value="${entity.category.id}">
+								<div class="input-group">
+									<input type="hidden" name="category.id">
+									<input type="text" class="form-control" id="categoryInfo"
+										value="${entity.category.id}" readonly>
+									<span class="input-group-btn">
+										<button class="btn default" type="button" data-toggle="modal" data-target="#myModal"
+											data-remote="category/select/1?f=categoryInfo">
+											<i class="fa fa-search"></i>
+										</button>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -89,18 +96,45 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<div class="form-actions fluid">
 					<div class="col-md-offset-2 col-md-10">
 						<button type="submit" class="btn blue">Submit</button>
-						<button type="button" class="btn default">Cancel</button>                              
+						<button type="button" class="btn default">Cancel</button> 
 					</div>
 				</div>
 			</form>
 			</div>
 
 		</c:if>
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+	   aria-labelledby="myModalLabel" aria-hidden="true">
+	   
+	   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               模态框（Modal）标题
+            </h4>
+         </div>
+         <div class="modal-body">
+            在这里添加一些文本
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" 
+               data-dismiss="modal">关闭
+            </button>
+            <button type="button" class="btn btn-primary">
+               提交更改
+            </button>
+         </div>
+      </div>
+	   
 	</div>
 </body>
 </html>
