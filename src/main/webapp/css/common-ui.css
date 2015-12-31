@@ -533,3 +533,23 @@ table.table-form .btn:active {
 	left: auto;
 	margin: 0;
 }
+/******************************************************/
+.select-box-modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	z-index: 999999;
+	width: 100%;
+	height: 100%;
+	background-color: #c0c0c0;
+	opacity:0.9;
+}
+.select-box-modal .cnt{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 80px;
+	width: 800px;
+	background-color: #FFFFFF;
+	border: 1px #F3F3F3 solid;
+	box-shadow: 0 0 3px #888888;
+}

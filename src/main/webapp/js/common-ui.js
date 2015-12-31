@@ -108,4 +108,12 @@ $(function(){
 			$(this).animate({"width":100},300);
 		}
     });*/
+	
+	$("button[data-select=true]").click(function(e) {
+		var url = $(this).attr("data-remote");
+		var selectModal = $("#select-box-modal");
+		selectModal.find(".cnt").html("").load(url, function(){
+			selectModal.fadeIn(200);
+		});
+    });
 });

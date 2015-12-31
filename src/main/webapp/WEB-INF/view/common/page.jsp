@@ -9,7 +9,7 @@
             共<span class="num">${pageable.pages}</span>页
         </span>
         <script type="text/javascript">
-       	var url = "brand/list/";
+       	var url = "${param.url}";
         $(function(){
         	var $pageCtrl = $(".page-ctrl");
         	var page = ${pageable.page}; // 当前页
@@ -35,11 +35,15 @@
         	// 尾页按钮
         	// <span class="page"><i class="icon-fast-forward"></i></span>
         });
-        
+        var selectModal = "${param.modal}";
         function gopage(page){
         	var param = $("#search-form").serialize();
         	var href = url + page + "?" + param;
-        	location.replace(href);
+        	if(selectModal.length>0){
+        		$("#select-box-modal .cnt").load(href);
+        	} else {
+        		location.replace(href);
+        	}
         }
         </script>
     </div>

@@ -60,15 +60,15 @@
             </tr>
         </thead>
         <tbody>
-        	<c:forEach items="${pageable.list}" var="brand">
+        	<c:forEach items="${pageable.list}" var="entity">
             <tr>
                 <td><input type="checkbox" /></td>
-                <td>${brand.id}</td>
-                <td>${brand.name}</td>
-                <td>${brand.category.name}</td>
-                <td>${brand.description}</td>
+                <td>${entity.id}</td>
+                <td>${entity.name}</td>
+                <td>${entity.category.name}</td>
+                <td>${entity.description}</td>
                 <td>
-                	<a href="category/editpage?id=${brand.id}"><i class="icon-edit"></i></a>
+                	<a href="category/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
                 	<i class="icon-remove"></i>
                	</td>
             </tr>

@@ -27,5 +27,9 @@ public class BrandController extends BaseController<Brand, Integer> {
 	protected String getListPage() {
 		return "productunit/brand-list";
 	}
+	@Override
+	protected String getSelectPage() {
+		return "productunit/brand-select";
+	}
 	
 }

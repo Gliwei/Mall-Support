@@ -23,6 +23,7 @@ public abstract class BaseController<T extends BaseEntity, ID extends Serializab
     
     abstract protected String getEditPage();
     abstract protected String getListPage();
+    abstract protected String getSelectPage();
     
     @RequestMapping("/search")
 	public String search(String fields, String kw, Integer pageNo, Model m){
@@ -30,6 +31,14 @@ public abstract class BaseController<T extends BaseEntity, ID extends Serializab
 		m.addAttribute("pageable", pageable);
 		m.addAttribute("kw", kw);
 		return getListPage();
+	}
+    
+    @RequestMapping("/select/{p}")
+	public String select(Model m, @PathVariable("p") Integer pageNo, String f){
+		Pageable<T> pageable = getService().findByPage(pageNo);
+		m.addAttribute("pageable", pageable);
+		m.addAttribute("f", f);
+		return getSelectPage();
 	}
 	
 	@RequestMapping("/list")

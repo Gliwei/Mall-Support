@@ -34,7 +34,7 @@
 					<p>Successful operation, next step</p>
 					<p>
 						<a class="btn btn-primary btn-lg" role="button"
-							href="${root}category/list"> view list </a>
+							href="${root}product/list"> view list </a>
 					</p>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 			<div class="c-tit" style="margin-bottom: 10px;">
 		        <span class="text">
 		        	<i class="icon-bookmark"></i>
-		            <span>Category Edit</span>
+		            <span>product Edit</span>
 		        </span>
 		        <span class="right-icon refresh" title="刷新">
 		            <i class="fa fa-refresh"></i>
@@ -54,7 +54,7 @@
 		    </div>
 		    
 			<div class="portlet-body form">
-			<form class="form-horizontal form-bordered form-small" role="form" action="category/save"
+			<form class="form-horizontal form-bordered form-small" role="form" action="product/save"
 				method="post" id="entityForm"><!-- form-bordered -->
 				<div class="form-body">
 					<input type="hidden" name="id" value="${entity.id}">
@@ -62,23 +62,30 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label class="control-label">Category Name</label>
-								<div class="controls">
-									<input type="text" class="form-control" id="name" name="name"
-										value="${entity.name}" required>
+								<label class="control-label">Category</label>
+								<div class="input-group">
+									<input type="hidden" name="product.id">
+									<input type="text" class="form-control" id="categoryInfo"
+										value="${entity.category.id}" readonly>
+									<span class="input-group-btn">
+										<button class="btn default" type="button" data-select="true" 
+											data-remote="category/select/1?f=categoryInfo">
+											<i class="fa fa-search"></i>
+										</button>
+									</span>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label class="control-label">Parent Category</label>
+								<label class="control-label">Brand</label>
 								<div class="input-group">
-									<input type="hidden" name="category.id">
-									<input type="text" class="form-control" id="categoryInfo"
-										value="${entity.category.id}" readonly>
+									<input type="hidden" name="brand.id">
+									<input type="text" class="form-control" id="brandInfo"
+										value="${entity.brand.id}" readonly>
 									<span class="input-group-btn">
 										<button class="btn default" type="button" data-select="true"
-											data-remote="category/select/1?f=categoryInfo">
+											data-remote="brand/select/1?f=brandInfo">
 											<i class="fa fa-search"></i>
 										</button>
 									</span>
