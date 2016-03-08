@@ -17,5 +17,13 @@ public class ProductService extends BaseService<Product, Integer>{
 	protected BaseDao<Product, Integer> getEntityDao() {
 		return productDao;
 	}
+	
+	@Override
+	public void save(Product entity) {
+		if(entity.isNew()){
+			entity.setSpu(System.currentTimeMillis()+""); // TODO SPU生成策略
+		}
+		super.save(entity);
+	}
 
 }

@@ -2,6 +2,7 @@
 $(function(){
 	/** 页头右侧按钮点击事件监听 */
 	$(".c-tit .refresh").click(function(){
+		alert(location.href);
 		location.replace(location.href);
 	});
 	

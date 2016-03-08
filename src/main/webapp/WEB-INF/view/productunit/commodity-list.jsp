@@ -6,7 +6,7 @@
 <head>
 <base href="/mall-support/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Brand list</title>
+<title>list page</title>
 <script src="js/jquery-2.1.4.js"></script>
 <script src="js/common-ui.js"></script>
 <link href="css/common-ui.css" rel="stylesheet" type="text/css" />
@@ -18,11 +18,11 @@
     <div class="c-tit">
         <span class="text">
         	<i class="icon-bookmark"></i>
-            <span>Brand List</span>
+            <span>Commodity List</span>
         </span>
-        <form action="brand/search" method="get" id="search-form">
+        <form action="commodity/search" method="get" id="search-form">
         <span class="search-box">
-        	<input type="hidden" name="fields" value="id/name/enName/description" />
+        	<input type="hidden" name="fields" value="id/spu/brand.name" />
         	<input type="hidden" name="pageNo" value="1" placeholder="Enter keyword.."/>
             <input type="text" name="kw" value="${kw}"/>
             <button type="reset">&nbsp;<i class="icon-eraser"></i>&nbsp;</button>
@@ -32,7 +32,7 @@
         <span class="right-icon refresh" title="刷新">
             <i class="icon-refresh"></i>
         </span>
-        <a href="brand/editpage">
+        <a href="commodity/editpage">
         <span class="right-icon add" title="添加">
             <i class="icon-plus"></i>
         </span>
@@ -52,11 +52,13 @@
         <thead>
             <tr>
                 <th width="40px"><input type="checkbox" id="checkAll"/></th>
-                <th>Logo</th>
                 <th>ID</th>
-                <th>Name</th>
-                <th>EnName</th>
-                <th>description</th>
+                <th>mainPicture</th>
+                <th>product</th>
+                <th>SKU</th>
+                <th>Title</th>
+				<th>SalePrice</th>
+				<th>CostPrice</th>
                 <th id="mth"><span id="text"></span><i class="icon-angle-left"></i></th>
             </tr>
         </thead>
@@ -64,13 +66,15 @@
         	<c:forEach items="${pageable.list}" var="entity">
             <tr>
                 <td><input type="checkbox" /></td>
-                <td class="uname"><img src="${entity.logoBigUrl}" class="img-rounded" width="25px"></td>
                 <td>${entity.id}</td>
-                <td>${entity.name}</td>
-                <td>${entity.enName}</td>
-                <td>${entity.description}</td>
+                <td>${entity.mainPicture}</td>
+                <td>${entity.product.title}</td>
+                <td>${entity.sku}</td>
+                <td>${entity.title}</td>
+                <td>${entity.salePrice}</td>
+                <td>${entity.costPrice}</td>
                 <td>
-                	<a href="brand/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
+                	<a href="commodity/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
                 	<i class="icon-remove"></i>
                	</td>
             </tr>
@@ -78,7 +82,7 @@
         </tbody>
     </table>
     <c:import url="../common/page.jsp">
-    	<c:param name="url" value="brand/list/" />
+    	<c:param name="url" value="commodity/list/" />
     </c:import>
 </body>
 </html> 

@@ -20,7 +20,7 @@
         	<i class="icon-bookmark"></i>
             <span>Category List</span>
         </span>
-        <form action="category/search" method="post" id="search-form">
+        <form action="category/search" method="get" id="search-form">
         <span class="search-box">
         	<input type="hidden" name="fields" value="id/name/description" />
         	<input type="hidden" name="pageNo" value="1" placeholder="Enter keyword.."/>

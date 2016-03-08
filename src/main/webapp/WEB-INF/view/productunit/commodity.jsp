@@ -34,7 +34,7 @@
 					<p>Successful operation, next step</p>
 					<p>
 						<a class="btn btn-primary btn-lg" role="button"
-							href="${root}product/list"> view list </a>
+							href="${root}commodity/list"> view list </a>
 					</p>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 			<div class="c-tit" style="margin-bottom: 10px;">
 		        <span class="text">
 		        	<i class="icon-bookmark"></i>
-		            <span>Product Edit</span>
+		            <span>Commodity Edit</span>
 		        </span>
 		        <span class="right-icon refresh" title="刷新">
 		            <i class="fa fa-refresh"></i>
@@ -54,7 +54,7 @@
 		    </div>
 		    
 			<div class="portlet-body form">
-			<form class="form-horizontal form-bordered form-small" role="form" action="product/save"
+			<form class="form-horizontal form-bordered form-small" role="form" action="commodity/save"
 				method="post" id="entityForm"><!-- form-bordered -->
 				<div class="form-body">
 					<input type="hidden" name="id" value="${entity.id}">
@@ -62,14 +62,14 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label class="control-label">Category</label>
+								<label class="control-label">Product</label>
 								<div class="input-group">
-									<input type="hidden" name="category.id">
-									<input type="text" class="form-control" id="categoryInfo"
-										value="${entity.category.id}" readonly>
+									<input type="hidden" name="product.id">
+									<input type="text" class="form-control" id="productInfo"
+										value="${entity.product.id}" readonly>
 									<span class="input-group-btn">
 										<button class="btn default" type="button" data-select="true" 
-											data-remote="category/select/1?f=categoryInfo">
+											data-remote="product/select/1?f=productInfo">
 											<i class="fa fa-search"></i>
 										</button>
 									</span>
@@ -78,17 +78,10 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label class="control-label">Brand</label>
-								<div class="input-group">
-									<input type="hidden" name="brand.id">
-									<input type="text" class="form-control" id="brandInfo"
-										value="${entity.brand.id}" readonly>
-									<span class="input-group-btn">
-										<button class="btn default" type="button" data-select="true"
-											data-remote="brand/select/1?f=brandInfo">
-											<i class="fa fa-search"></i>
-										</button>
-									</span>
+								<label class="control-label">Main Picture</label>
+								<div class="controls">
+									<input type="text" class="form-control" id="mainPicture" name="mainPicture"
+										value="${entity.mainPicture}">
 								</div>
 							</div>
 						</div>
@@ -110,6 +103,27 @@
 								<div class="controls">
 									<input type="text" class="form-control" id="subtitle" name="subtitle"
 										value="${entity.subtitle}" required>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label">Sale Price</label>
+								<div class="controls">
+									<input type="text" class="form-control" id="title" name="salePrice"
+										value="${entity.salePrice}">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label">Cost Price</label>
+								<div class="controls">
+									<input type="text" class="form-control" id="subtitle" name="costPrice"
+										value="${entity.costPrice}" required>
 								</div>
 							</div>
 						</div>

@@ -31,7 +31,7 @@ public class Product extends BaseEntity {
 	private String htmlDescription;
 	private Set<Commodity> commodities = new HashSet<Commodity>(0);
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "categoryId")
 	public Category getCategory() {
 		return this.category;
@@ -41,7 +41,7 @@ public class Product extends BaseEntity {
 		this.category = category;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "brandId")
 	public Brand getBrand() {
 		return this.brand;

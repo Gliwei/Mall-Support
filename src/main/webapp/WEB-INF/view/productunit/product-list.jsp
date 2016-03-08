@@ -20,9 +20,9 @@
         	<i class="icon-bookmark"></i>
             <span>Product List</span>
         </span>
-        <form action="product/search" method="post" id="search-form">
+        <form action="product/search" method="get" id="search-form">
         <span class="search-box">
-        	<input type="hidden" name="fields" value="id/name/description" />
+        	<input type="hidden" name="fields" value="id/spu/brand.name" />
         	<input type="hidden" name="pageNo" value="1" placeholder="Enter keyword.."/>
             <input type="text" name="kw" value="${kw}"/>
             <button type="reset">&nbsp;<i class="icon-eraser"></i>&nbsp;</button>
@@ -53,9 +53,11 @@
             <tr>
                 <th width="40px"><input type="checkbox" id="checkAll"/></th>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Parent</th>
-                <th>Description</th>
+                <th>SPU</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Title</th>
+                <th>Sub Title</th>
                 <th id="mth"><span id="text"></span><i class="icon-angle-left"></i></th>
             </tr>
         </thead>
@@ -64,9 +66,11 @@
             <tr>
                 <td><input type="checkbox" /></td>
                 <td>${entity.id}</td>
-                <td>${entity.name}</td>
-                <td>${entity.product.name}</td>
-                <td>${entity.description}</td>
+                <td>${entity.spu}</td>
+                <td>${entity.category.name}</td>
+                <td>${entity.brand.name}</td>
+                <td>${entity.title}</td>
+                <td>${entity.subtitle}</td>
                 <td>
                 	<a href="product/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
                 	<i class="icon-remove"></i>
