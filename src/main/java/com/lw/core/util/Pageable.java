@@ -20,7 +20,7 @@ public class Pageable<T> {
 	private Pageable() {}
 	
 	public Pageable(int page) {
-		this(page, 5);
+		this(page, 15);
 	}
 	
 	public Pageable(int page, int rows) {
