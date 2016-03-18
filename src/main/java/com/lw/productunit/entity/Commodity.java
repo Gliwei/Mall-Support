@@ -31,7 +31,7 @@ public class Commodity extends BaseEntity {
 	private Set<Commodity2specitem> commodity2specitems = new HashSet<Commodity2specitem>(0);
 	private Set<Commodity2propertyitem> commodity2propertyitems = new HashSet<Commodity2propertyitem>(0);
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "productId")
 	public Product getProduct() {
 		return this.product;

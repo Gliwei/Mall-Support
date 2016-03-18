@@ -16,9 +16,8 @@
     </servlet>
     
     <servlet>
-
-	<!-- 解决Jetty启动中无法修改静态文件的问题 -->
-	<servlet-name>default</servlet-name> 
+		<!-- 解决Jetty启动中无法修改静态文件的问题 -->
+		<servlet-name>default</servlet-name> 
 		<servlet-class>org.eclipse.jetty.servlet.DefaultServlet</servlet-class> 
 		<init-param> 
 			<param-name>useFileMappedBuffer</param-name> 

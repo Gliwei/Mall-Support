@@ -17,29 +17,38 @@
              &times;
        </button>
        <h4 class="modal-title" id="myModalLabel">
-          Select Category
+          Select Product
        </h4>
     </div>
     <div>
 
-    <table class="simple-table" id="selectTable">
+    <table class="simple-table">
         <thead>
             <tr>
-                <th width="40px"></th>
+                <th width="40px"><input type="checkbox" id="checkAll"/></th>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Parent</th>
-                <th>Description</th>
+                <th>SPU</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Title</th>
+                <th>Sub Title</th>
+                <th id="mth"><span id="text"></span><i class="icon-angle-left"></i></th>
             </tr>
         </thead>
         <tbody>
         	<c:forEach items="${pageable.list}" var="entity">
             <tr>
-                <td><input type="radio" name="selectRadio" value="${entity.id}" data-info="${entity.id} | ${entity.name}"/></td>
+                <td><input type="radio" name="selectRadio" value="${entity.id}" data-info="${entity.id} | ${entity.title}"/></td>
                 <td>${entity.id}</td>
-                <td>${entity.name}</td>
+                <td>${entity.spu}</td>
                 <td>${entity.category.name}</td>
-                <td>${entity.description}</td>
+                <td>${entity.brand.name}</td>
+                <td>${entity.title}</td>
+                <td>${entity.subtitle}</td>
+                <td>
+                	<a href="product/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
+                	<i class="icon-remove"></i>
+               	</td>
             </tr>
             </c:forEach>
         </tbody>
@@ -64,7 +73,7 @@
 		var id = $("input[name='selectRadio']:checked").val();
 		var info = $("input[name='selectRadio']:checked").attr("data-info");
 		
-		$("input[name='category.id']").val(id);
+		$("input[name='product.id']").val(id);
 		$("#${f}").val(info);
 		selectClose();
 	}
