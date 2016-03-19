@@ -31,7 +31,7 @@ $(function(){
 
 	$(".submitBtn").click(function(e) {
 		success(function(){
-			window.location = "index.html";
+			window.location = "index";
 			// window.location = "login.html";
 		});        
     });

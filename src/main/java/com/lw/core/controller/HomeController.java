@@ -5,10 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("")
 public class HomeController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	public String home(Model m){
 		return "index";
 	}
@@ -16,5 +15,10 @@ public class HomeController {
 	@RequestMapping("/welcome")
 	public String welcome(Model m){
 		return "welcome";
+	}
+	
+	@RequestMapping("/login")
+	public String login(Model m){
+		return "login";
 	}
 }
