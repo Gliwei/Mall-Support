@@ -4,13 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="/Mall-support/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>list page</title>
-<script src="js/jquery-2.1.4.js"></script>
-<script src="js/common-ui.js"></script>
-<link href="css/common-ui.css" rel="stylesheet" type="text/css" />
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<script src="${rootPath}js/jquery-2.1.4.js"></script>
+<script src="${rootPath}js/common-ui.js"></script>
+<link href="${rootPath}css/common-ui.css" rel="stylesheet" type="text/css" />
+<link href="${rootPath}css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -20,7 +19,7 @@
         	<i class="icon-bookmark"></i>
             <span>Product List</span>
         </span>
-        <form action="product/search" method="get" id="search-form">
+        <form action="${rootPath}product/search" method="get" id="search-form">
         <span class="search-box">
         	<input type="hidden" name="fields" value="id/spu/brand.name" />
         	<input type="hidden" name="pageNo" value="1" placeholder="Enter keyword.."/>
@@ -80,7 +79,7 @@
         </tbody>
     </table>
     <c:import url="../common/page.jsp">
-    	<c:param name="url" value="product/list/" />
+    	<c:param name="url" value="${rootPath}product/list/" />
     </c:import>
 </body>
 </html> 

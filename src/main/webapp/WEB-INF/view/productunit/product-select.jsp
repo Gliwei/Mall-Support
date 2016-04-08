@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="/Mall-support/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>list page</title>
 </head>
@@ -46,7 +45,7 @@
                 <td>${entity.title}</td>
                 <td>${entity.subtitle}</td>
                 <td>
-                	<a href="product/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
+                	<a href="${rootPath}product/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
                 	<i class="icon-remove"></i>
                	</td>
             </tr>
@@ -54,7 +53,7 @@
         </tbody>
     </table>
     <c:import url="../common/page.jsp">
-    	<c:param name="url" value="category/select/" />
+    	<c:param name="url" value="${rootPath}category/select/" />
     	<c:param name="modal" value="true" />
     </c:import>
     </div>

@@ -4,13 +4,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<base href="/Mall-support/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Mall Support System</title>
 <!-- 字体图标 -->
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="css/index.css" />
-<script src="js/jquery-2.1.4.js"></script>
+<link href="${rootPath}css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="${rootPath}css/index.css" />
+<script src="${rootPath}js/jquery-2.1.4.js"></script>
 <script type="text/javascript">
 	// JavaScript Document
 	$(function() {

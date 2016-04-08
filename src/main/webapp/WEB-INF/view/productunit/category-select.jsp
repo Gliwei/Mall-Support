@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="/Mall-support/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>list page</title>
 </head>
@@ -45,7 +44,7 @@
         </tbody>
     </table>
     <c:import url="../common/page.jsp">
-    	<c:param name="url" value="category/select/" />
+    	<c:param name="url" value="${rootPath}category/select/" />
     	<c:param name="modal" value="true" />
     </c:import>
     </div>

@@ -22,4 +22,11 @@
 		<!-- 如果使用jstl的话，配置下面的属性 -->
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 	</bean>
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.lw.core.interceptor.CoreInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>

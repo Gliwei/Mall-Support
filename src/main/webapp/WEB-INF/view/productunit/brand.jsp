@@ -4,21 +4,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="/Mall-support/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>品牌</title>
 <!-- bootstrap -->
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${rootPath}bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- assets 扁平化UI -->
-<link href="assets/css/style-metronic.css" rel="stylesheet"/>
-<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="${rootPath}assets/css/style-metronic.css" rel="stylesheet"/>
+<link href="${rootPath}assets/css/style.css" rel="stylesheet" type="text/css"/>
 <!-- 字体图标 -->
-<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="${rootPath}assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <!-- 自定义组件/样式 -->
-<link href="css/common-ui.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery-2.1.4.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script src="js/common-ui.js"></script>
+<link href="${rootPath}css/common-ui.css" rel="stylesheet" type="text/css" />
+<script src="${rootPath}js/jquery-2.1.4.js"></script>
+<script src="${rootPath}bootstrap/js/bootstrap.min.js"></script>
+<script src="${rootPath}js/common-ui.js"></script>
 <%-- <script src="${root}jquery-validation/jquery.validate.js"></script> --%>
 <script type="text/javascript">
 	//$("#entityForm").validate();
@@ -33,7 +32,7 @@
 					<p>Successful operation, next step</p>
 					<p>
 						<a class="btn btn-primary btn-lg" role="button"
-							href="${root}brand/list"> view list </a>
+							href="${rootPath}brand/list"> view list </a>
 					</p>
 				</div>
 			</div>
@@ -53,7 +52,7 @@
 		    </div>
 		    
 			<div class="portlet-body form">
-			<form class="form-horizontal form-bordered form-small" role="form" action="brand/save"
+			<form class="form-horizontal form-bordered form-small" role="form" action="${rootPath}brand/save"
 				method="post" id="entityForm"><!-- form-bordered -->
 				<div class="form-body">
 					<input type="hidden" name="id" value="${entity.id}">

@@ -4,21 +4,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="/Mall-support/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>edit page</title>
 <!-- bootstrap -->
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="${rootPath}bootstrap/css/bootstrap.css" rel="stylesheet">
 <!-- assets 扁平化UI -->
-<link href="assets/css/style-metronic.css" rel="stylesheet"/>
-<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="${rootPath}assets/css/style-metronic.css" rel="stylesheet"/>
+<link href="${rootPath}assets/css/style.css" rel="stylesheet" type="text/css"/>
 <!-- 字体图标 -->
-<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="${rootPath}assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <!-- 自定义组件/样式 -->
-<link href="css/common-ui.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery-2.1.4.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script src="js/common-ui.js"></script>
+<link href="${rootPath}css/common-ui.css" rel="stylesheet" type="text/css" />
+<script src="${rootPath}js/jquery-2.1.4.js"></script>
+<script src="${rootPath}bootstrap/js/bootstrap.min.js"></script>
+<script src="${rootPath}js/common-ui.js"></script>
 <%-- <script src="${root}jquery-validation/jquery.validate.js"></script> --%>
 <script type="text/javascript">
 	//$("#entityForm").validate();
@@ -69,7 +68,7 @@
 										value="${entity.category.id}" readonly>
 									<span class="input-group-btn">
 										<button class="btn default" type="button" data-select="true" 
-											data-remote="category/select/1?f=categoryInfo">
+											data-remote="${rootPath}category/select/1?f=categoryInfo">
 											<i class="fa fa-search"></i>
 										</button>
 									</span>
@@ -85,7 +84,7 @@
 										value="${entity.brand.id}" readonly>
 									<span class="input-group-btn">
 										<button class="btn default" type="button" data-select="true"
-											data-remote="brand/select/1?f=brandInfo">
+											data-remote="${rootPath}brand/select/1?f=brandInfo">
 											<i class="fa fa-search"></i>
 										</button>
 									</span>

@@ -4,13 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="/Mall-support/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>list page</title>
-<script src="js/jquery-2.1.4.js"></script>
-<script src="js/common-ui.js"></script>
-<link href="css/common-ui.css" rel="stylesheet" type="text/css" />
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<script src="${rootPath}js/jquery-2.1.4.js"></script>
+<script src="${rootPath}js/common-ui.js"></script>
+<link href="${rootPath}css/common-ui.css" rel="stylesheet" type="text/css" />
+<link href="${rootPath}css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -20,7 +19,7 @@
         	<i class="icon-bookmark"></i>
             <span>Category List</span>
         </span>
-        <form action="category/search" method="get" id="search-form">
+        <form action="${rootPath}category/search" method="get" id="search-form">
         <span class="search-box">
         	<input type="hidden" name="fields" value="id/name/description" />
         	<input type="hidden" name="pageNo" value="1" placeholder="Enter keyword.."/>
@@ -32,7 +31,7 @@
         <span class="right-icon refresh" title="刷新">
             <i class="icon-refresh"></i>
         </span>
-        <a href="category/editpage">
+        <a href="${rootPath}category/editpage">
         <span class="right-icon add" title="添加">
             <i class="icon-plus"></i>
         </span>
@@ -68,7 +67,7 @@
                 <td>${entity.category.name}</td>
                 <td>${entity.description}</td>
                 <td>
-                	<a href="category/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
+                	<a href="${rootPath}category/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
                 	<i class="icon-remove"></i>
                	</td>
             </tr>
@@ -76,7 +75,7 @@
         </tbody>
     </table>
     <c:import url="../common/page.jsp">
-    	<c:param name="url" value="category/list/" />
+    	<c:param name="url" value="${rootPath}category/list/" />
     </c:import>
 </body>
 </html> 
