@@ -258,7 +258,7 @@
 				<configuration>
 					<!-- <scanIntervalSeconds>10</scanIntervalSeconds> -->
 					<webApp>
-						<contextPath>/Mall-support</contextPath>
+						<contextPath>/Mall-Support</contextPath>
 					</webApp>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
