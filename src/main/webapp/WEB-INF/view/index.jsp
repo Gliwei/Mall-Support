@@ -92,6 +92,7 @@
 							<li url="category/list">Category</li>
 							<li url="product/list"><a href="#">Product</a></li>
 							<li url="commodity/list"><a href="#">Commodity</a></li>
+							<li url="spec/list"><a href="#">Specifications</a></li>
 						</ul>
 					</div>
 					<div class="item">
