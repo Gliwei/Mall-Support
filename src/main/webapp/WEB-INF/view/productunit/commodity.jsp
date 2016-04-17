@@ -53,7 +53,7 @@
 		    </div>
 		    
 			<div class="portlet-body form">
-			<form class="form-horizontal form-bordered form-small" role="form" action="commodity/save"
+			<form class="form-horizontal form-bordered form-small" role="form" action="${rootPath}commodity/save"
 				method="post" id="entityForm"><!-- form-bordered -->
 				<div class="form-body">
 					<input type="hidden" name="id" value="${entity.id}">
@@ -61,11 +61,23 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
+								<label class="control-label">SKU</label>
+								<div class="controls">
+									<input type="text" class="form-control" id="sku" name="sku"
+										value="${entity.sku}" readonly>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
 								<label class="control-label">Product</label>
 								<div class="input-group">
-									<input type="hidden" name="product.id">
+									<input type="hidden" name="product.id" value="${entity.product.id}">
 									<input type="text" class="form-control" id="productInfo"
-										value="${entity.product.id}" readonly>
+										value="${entity.product.spu} \ ${entity.product.title}" readonly>
 									<span class="input-group-btn">
 										<button class="btn default" type="button" data-select="true" 
 											data-remote="${rootPath}product/select/1?f=productInfo">
@@ -123,6 +135,25 @@
 								<div class="controls">
 									<input type="text" class="form-control" id="subtitle" name="costPrice"
 										value="${entity.costPrice}" required>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label">SPEC</label>
+								<div class="controls">
+									<a href="${rootPath}commodity/editSpecPage?id=${entity.id}">click to edit</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label">Property</label>
+								<div class="controls">
+									<a href="${rootPath}commodity/editPropertyPage?id=${entity.id}">click to edit</a>
 								</div>
 							</div>
 						</div>

@@ -27,7 +27,7 @@ public class Property extends BaseEntity {
 	private String name;
 	private Set<Propertyitem> propertyitems = new HashSet<Propertyitem>(0);
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "categoryId")
 	public Category getCategory() {
 		return this.category;
@@ -46,7 +46,7 @@ public class Property extends BaseEntity {
 		this.name = name;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "property")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "property")
 	public Set<Propertyitem> getPropertyitems() {
 		return this.propertyitems;
 	}

@@ -23,6 +23,10 @@ public class BaseDao<T extends BaseEntity, ID extends Serializable> {
 		this.clazz = clazz;
 	}
 	
+	public EntityManager getEm() {
+		return em;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public Pageable<T> likeSearch(String fields, String value, Pageable<T> page){
 		// fields = id/name/enName/description
@@ -102,5 +106,9 @@ public class BaseDao<T extends BaseEntity, ID extends Serializable> {
 				.setFirstResult(page.getStartRow()).setMaxResults(page.getRows()).getResultList();
 		page.setList(list);
 		return page;
+	}
+
+	public void delete(T entity){
+		em.remove(entity);
 	}
 }

@@ -1,9 +1,11 @@
 package com.lw.productunit.entity;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
 
 import com.lw.core.entity.BaseEntity;
 
@@ -25,9 +29,9 @@ public class Spec extends BaseEntity {
 	
 	private Category category;
 	private String name;
-	private Set<Specitem> specitems = new HashSet<Specitem>(0);
+	private List<Specitem> specitems = new ArrayList<Specitem>();
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "categoryId")
 	public Category getCategory() {
 		return this.category;
@@ -46,19 +50,28 @@ public class Spec extends BaseEntity {
 		this.name = name;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "spec")
+	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "spec")
 	public Set<Specitem> getSpecitems() {
 		return this.specitems;
 	}
 
 	public void setSpecitems(Set<Specitem> specitems) {
 		this.specitems = specitems;
-	}
-
+	}*/
+	
 	@Override
 	public Map<String, String> validation() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "spec", cascade=CascadeType.ALL)
+	public List<Specitem> getSpecitems() {
+		return specitems;
+	}
+
+	public void setSpecitems(List<Specitem> specitems) {
+		this.specitems = specitems;
 	}
 
 }

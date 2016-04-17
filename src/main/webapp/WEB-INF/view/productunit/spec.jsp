@@ -18,10 +18,6 @@
 <script src="${rootPath}js/jquery-2.1.4.js"></script>
 <script src="${rootPath}bootstrap/js/bootstrap.min.js"></script>
 <script src="${rootPath}js/common-ui.js"></script>
-<%-- <script src="${root}jquery-validation/jquery.validate.js"></script> --%>
-<script type="text/javascript">
-	//$("#entityForm").validate();
-</script>
 </head>
 <body>
 	<div id="select-box-modal" class="select-box-modal"><div class="cnt"></div></div>
@@ -33,7 +29,7 @@
 					<p>Successful operation, next step</p>
 					<p>
 						<a class="btn btn-primary btn-lg" role="button"
-							href="${root}spec/list"> view list </a>
+							href="${rootPath}spec/list"> view list </a>
 					</p>
 				</div>
 			</div>
@@ -59,13 +55,13 @@
 					<input type="hidden" name="id" value="${entity.id}">
 					
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-6">
 							<div class="form-group">
 								<label class="control-label">Category</label>
 								<div class="input-group">
-									<input type="hidden" name="category.id">
+									<input type="hidden" name="category.id" value="${entity.category.id}">
 									<input type="text" class="form-control" id="categoryInfo"
-										value="${entity.category.id}" readonly>
+										value="${entity.category.id} | ${entity.category.name}" readonly>
 									<span class="input-group-btn">
 										<button class="btn default" type="button" data-select="true" 
 											data-remote="${rootPath}category/select/1?f=categoryInfo">
@@ -77,7 +73,7 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label class="control-label">name</label>
+								<label class="control-label">Name</label>
 								<div class="controls">
 									<input type="text" class="form-control" id="name" name="name"
 										value="${entity.name}">
@@ -85,18 +81,29 @@
 							</div>
 						</div>
 					</div>
-					
+					<c:if test="${entity.id!=null}">
 					<div class="row">
-						<input type="text" class="form-control" name="specitems[0].itemName" value="${entity.specitems.itemName}">
-						<input type="text" class="form-control" name="specitems[1].itemName" value="${entity.specitems.itemName}">
-						<input type="text" class="form-control" name="specitems[2].itemName" value="${entity.specitems.itemName}">
-						<input type="text" class="form-control" name="specitems[3].itemName" value="${entity.specitems.itemName}">
+						<div class="col-md-12">
+							<div class="form-group itemlist">
+								<label class="control-label">Items</label>
+								<div class="controls">
+									<ul class="flat">
+										<c:forEach items="${entity.specitems}" var="specitem" >
+											<li>
+												<input type="text" value="${specitem.itemName}" readonly>
+											</li>
+										</c:forEach>
+										<li class="add"><a href="${rootPath}spec/editItemPage?id=${entity.id}">click to edit</a></li>
+								    </ul>
+							    </div>
+							</div>
+						</div>
 					</div>
+					</c:if>
 				</div>
 				<div class="form-actions fluid">
 					<div class="col-md-offset-2 col-md-10">
-						<button type="submit" class="btn blue">Submit</button>
-						<button type="button" class="btn default">Cancel</button> 
+						<button type="submit" class="btn blue" id="ajaxSubmit">Next>></button>
 					</div>
 				</div>
 			</form>

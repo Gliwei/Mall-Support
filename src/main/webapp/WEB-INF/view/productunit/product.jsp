@@ -33,7 +33,7 @@
 					<p>Successful operation, next step</p>
 					<p>
 						<a class="btn btn-primary btn-lg" role="button"
-							href="${root}product/list"> view list </a>
+							href="${rootPath}product/list"> view list </a>
 					</p>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 		    </div>
 		    
 			<div class="portlet-body form">
-			<form class="form-horizontal form-bordered form-small" role="form" action="product/save"
+			<form class="form-horizontal form-bordered form-small" role="form" action="${rootPath}product/save"
 				method="post" id="entityForm"><!-- form-bordered -->
 				<div class="form-body">
 					<input type="hidden" name="id" value="${entity.id}">
@@ -61,11 +61,23 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
+								<label class="control-label">SPU</label>
+								<div class="controls">
+									<input type="text" class="form-control" id="spu" name="spu"
+										value="${entity.spu}" readonly>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
 								<label class="control-label">Category</label>
 								<div class="input-group">
-									<input type="hidden" name="category.id">
+									<input type="hidden" name="category.id" value="${entity.category.id}">
 									<input type="text" class="form-control" id="categoryInfo"
-										value="${entity.category.id}" readonly>
+										value="${entity.category.id} | ${entity.category.name}" readonly>
 									<span class="input-group-btn">
 										<button class="btn default" type="button" data-select="true" 
 											data-remote="${rootPath}category/select/1?f=categoryInfo">
@@ -79,9 +91,9 @@
 							<div class="form-group">
 								<label class="control-label">Brand</label>
 								<div class="input-group">
-									<input type="hidden" name="brand.id">
+									<input type="hidden" name="brand.id" value="${entity.brand.id}">
 									<input type="text" class="form-control" id="brandInfo"
-										value="${entity.brand.id}" readonly>
+										value="${entity.brand.id} | ${entity.brand.enName}" readonly>
 									<span class="input-group-btn">
 										<button class="btn default" type="button" data-select="true"
 											data-remote="${rootPath}brand/select/1?f=brandInfo">

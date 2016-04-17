@@ -19,7 +19,7 @@
         	<i class="icon-bookmark"></i>
             <span>Brand List</span>
         </span>
-        <form action="brand/search" method="get" id="search-form">
+        <form action="${rootPath}brand/search" method="get" id="search-form">
         <span class="search-box">
         	<input type="hidden" name="fields" value="id/name/enName/description" />
         	<input type="hidden" name="pageNo" value="1" placeholder="Enter keyword.."/>
@@ -31,7 +31,7 @@
         <span class="right-icon refresh" title="刷新">
             <i class="icon-refresh"></i>
         </span>
-        <a href="brand/editpage">
+        <a href="${rootPath}brand/editpage">
         <span class="right-icon add" title="添加">
             <i class="icon-plus"></i>
         </span>

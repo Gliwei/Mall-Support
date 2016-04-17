@@ -31,7 +31,7 @@
         <span class="right-icon refresh" title="刷新">
             <i class="icon-refresh"></i>
         </span>
-        <a href="product/editpage">
+        <a href="${rootPath}product/editpage">
         <span class="right-icon add" title="添加">
             <i class="icon-plus"></i>
         </span>
@@ -71,7 +71,7 @@
                 <td>${entity.title}</td>
                 <td>${entity.subtitle}</td>
                 <td>
-                	<a href="product/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
+                	<a href="${rootPath}product/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
                 	<i class="icon-remove"></i>
                	</td>
             </tr>

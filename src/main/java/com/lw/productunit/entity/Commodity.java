@@ -104,7 +104,7 @@ public class Commodity extends BaseEntity {
 		this.htmlDescription = htmlDescription;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "commodity")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "commodity")
 	public Set<Commodity2specitem> getCommodity2specitems() {
 		return this.commodity2specitems;
 	}
@@ -113,7 +113,7 @@ public class Commodity extends BaseEntity {
 		this.commodity2specitems = commodity2specitems;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "commodity")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "commodity")
 	public Set<Commodity2propertyitem> getCommodity2propertyitems() {
 		return this.commodity2propertyitems;
 	}

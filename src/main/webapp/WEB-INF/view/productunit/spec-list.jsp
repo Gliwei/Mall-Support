@@ -54,6 +54,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Category</th>
+                <th>Item</th>
                 <th id="mth"><span id="text"></span><i class="icon-angle-left"></i></th>
             </tr>
         </thead>
@@ -65,7 +66,10 @@
                 <td>${entity.name}</td>
                 <td>${entity.category.name}</td>
                 <td>
-                	<a href="spec/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
+                	<a href="${rootPath}spec/editItemPage?id=${entity.id}">click edit item</a>
+                </td>
+                <td>
+                	<a href="${rootPath}spec/editpage?id=${entity.id}"><i class="icon-edit"></i></a>
                 	<i class="icon-remove"></i>
                	</td>
             </tr>

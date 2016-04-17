@@ -1,5 +1,7 @@
 package com.lw.productunit.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.lw.core.dao.BaseDao;
@@ -10,6 +12,11 @@ public class SpecDao extends BaseDao<Spec, Integer> {
 
 	public SpecDao() {
 		super(Spec.class);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Spec> findByCategoryId(Integer id) {
+		return getEm().createQuery("from "+Spec.class.getSimpleName()+" where category.id="+id).getResultList();
 	}
 
 }

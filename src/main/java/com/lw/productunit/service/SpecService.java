@@ -1,5 +1,7 @@
 package com.lw.productunit.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,10 @@ public class SpecService extends BaseService<Spec, Integer>{
 	@Override
 	protected BaseDao<Spec, Integer> getEntityDao() {
 		return specDao;
+	}
+
+	public List<Spec> findByCategoryId(Integer id) {
+		return specDao.findByCategoryId(id);
 	}
 
 }

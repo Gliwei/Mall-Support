@@ -8,13 +8,9 @@
 <title>list page</title>
 </head>
 
-<body modal="true">
+<body>
 
 	<div class="modal-header">
-       <button type="button" class="close" 
-          data-dismiss="modal" aria-hidden="true">
-             &times;
-       </button>
        <h4 class="modal-title" id="myModalLabel">
           Select Brand
        </h4>
@@ -50,14 +46,13 @@
     	<c:param name="modal" value="true" />
     </c:import>
     </div>
-       <div class="modal-footer">
-          <button type="button" class="btn btn-default" 
-             onclick="selectClose()">关闭
-          </button>
-          <button type="button" class="btn btn-primary" onclick="selectCallbak();" >
-             提交更改
-          </button>
-       </div>
+    <div class="modal-footer">
+       <button type="button" class="btn btn-default" 
+          onclick="selectClose()">关闭
+       </button>
+       <button type="button" class="btn btn-primary" onclick="selectCallbak();" >
+          提交更改
+       </button>
     </div>
 </body>
 <script type="text/javascript">
