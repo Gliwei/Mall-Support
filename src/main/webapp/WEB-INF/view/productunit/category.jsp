@@ -33,7 +33,7 @@
 					<p>Successful operation, next step</p>
 					<p>
 						<a class="btn btn-primary btn-lg" role="button"
-							href="${root}category/list"> view list </a>
+							href="${rootPath}category/list"> view list </a>
 					</p>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 		    </div>
 		    
 			<div class="portlet-body form">
-			<form class="form-horizontal form-bordered form-small" role="form" action="category/save"
+			<form class="form-horizontal form-bordered form-small" role="form" action="${rootPath}category/save"
 				method="post" id="entityForm"><!-- form-bordered -->
 				<div class="form-body">
 					<input type="hidden" name="id" value="${entity.id}">

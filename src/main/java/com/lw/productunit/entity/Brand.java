@@ -84,6 +84,12 @@ public class Brand extends BaseEntity {
 		this.description = description;
 	}
 
+	@Override
+	public String toString() {
+		return "Brand [name=" + name + ", enName=" + enName + ", logoBigUrl=" + logoBigUrl + ", logoSamllUrl="
+				+ logoSamllUrl + ", description=" + description + "]";
+	}
+
 	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand")
 	public Set<Product> getProducts() {
 		return this.products;
