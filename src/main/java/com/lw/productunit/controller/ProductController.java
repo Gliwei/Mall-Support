@@ -11,12 +11,12 @@ import com.lw.productunit.service.ProductService;
 
 @Controller
 @RequestMapping("/product")
-public class ProductController extends BaseController<Product, Integer>{
+public class ProductController extends BaseController<Product, String>{
 	
 	@Autowired ProductService productService;
 
 	@Override
-	protected BaseService<Product, Integer> getService() {
+	protected BaseService<Product, String> getService() {
 		return productService;
 	}
 

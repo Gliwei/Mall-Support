@@ -9,19 +9,19 @@ import com.lw.productunit.dao.CommodityDao;
 import com.lw.productunit.entity.Commodity;
 
 @Service
-public class CommodityService extends BaseService<Commodity, Integer>{
+public class CommodityService extends BaseService<Commodity, String>{
 	@Autowired
 	CommodityDao commodityDao;
 
 	@Override
-	protected BaseDao<Commodity, Integer> getEntityDao() {
+	protected BaseDao<Commodity, String> getEntityDao() {
 		return commodityDao;
 	}
 	
 	@Override
 	public void save(Commodity entity) {
 		if(entity.isNew()){
-			entity.setSku(System.currentTimeMillis()+""); // TODO SPU生成策略
+			entity.setSku(System.currentTimeMillis()+""+(int)(Math.random()*10000)); // TODO SPU生成策略
 		}
 		super.save(entity);
 	}

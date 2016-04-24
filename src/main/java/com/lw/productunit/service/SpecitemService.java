@@ -9,12 +9,12 @@ import com.lw.productunit.dao.SpecitemDao;
 import com.lw.productunit.entity.Specitem;
 
 @Service
-public class SpecitemService extends BaseService<Specitem, Integer>{
+public class SpecitemService extends BaseService<Specitem, String>{
 	@Autowired
 	SpecitemDao specitemDao;
 
 	@Override
-	protected BaseDao<Specitem, Integer> getEntityDao() {
+	protected BaseDao<Specitem, String> getEntityDao() {
 		return specitemDao;
 	}
 

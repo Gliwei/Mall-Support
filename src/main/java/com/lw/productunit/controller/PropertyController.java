@@ -22,7 +22,7 @@ import com.lw.productunit.service.PropertyitemService;
 
 @Controller
 @RequestMapping("/property")
-public class PropertyController extends BaseController<Property, Integer>{
+public class PropertyController extends BaseController<Property, String>{
 	
 	@Autowired PropertyService propertyService;
 
@@ -35,7 +35,7 @@ public class PropertyController extends BaseController<Property, Integer>{
 	};
 	
 	@RequestMapping("/editItemPage")
-	public String editItemPage(Integer id, Model m) {
+	public String editItemPage(String id, Model m) {
 		Property entity = propertyService.findById(id);
 		m.addAttribute("entity", entity);
 		return "productunit/propertyitem";
@@ -57,7 +57,7 @@ public class PropertyController extends BaseController<Property, Integer>{
 	}
 	
 	@Override
-	protected BaseService<Property, Integer> getService() {
+	protected BaseService<Property, String> getService() {
 		return propertyService;
 	}
 

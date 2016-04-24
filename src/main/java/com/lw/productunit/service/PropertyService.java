@@ -11,16 +11,16 @@ import com.lw.productunit.dao.PropertyDao;
 import com.lw.productunit.entity.Property;
 
 @Service
-public class PropertyService extends BaseService<Property, Integer>{
+public class PropertyService extends BaseService<Property, String>{
 	@Autowired
 	PropertyDao propertyDao;
 
 	@Override
-	protected BaseDao<Property, Integer> getEntityDao() {
+	protected BaseDao<Property, String> getEntityDao() {
 		return propertyDao;
 	}
 
-	public List<Property> findByCategoryId(Integer id) {
+	public List<Property> findByCategoryId(String id) {
 		return propertyDao.findByCategoryId(id);
 	}
 

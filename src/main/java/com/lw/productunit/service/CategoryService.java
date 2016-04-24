@@ -9,12 +9,12 @@ import com.lw.productunit.dao.CategoryDao;
 import com.lw.productunit.entity.Category;
 
 @Service
-public class CategoryService extends BaseService<Category, Integer>{
+public class CategoryService extends BaseService<Category, String>{
 	@Autowired
 	CategoryDao categoryDao;
 
 	@Override
-	protected BaseDao<Category, Integer> getEntityDao() {
+	protected BaseDao<Category, String> getEntityDao() {
 		return categoryDao;
 	}
 

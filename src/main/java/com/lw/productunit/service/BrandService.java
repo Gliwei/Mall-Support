@@ -9,12 +9,12 @@ import com.lw.productunit.dao.BrandDao;
 import com.lw.productunit.entity.Brand;
 
 @Service
-public class BrandService extends BaseService<Brand, Integer>{
+public class BrandService extends BaseService<Brand, String>{
 	@Autowired
 	BrandDao barndDao;
 
 	@Override
-	protected BaseDao<Brand, Integer> getEntityDao() {
+	protected BaseDao<Brand, String> getEntityDao() {
 		return barndDao;
 	}
 	

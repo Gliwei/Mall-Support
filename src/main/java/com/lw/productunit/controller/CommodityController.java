@@ -30,7 +30,7 @@ import com.lw.productunit.service.SpecService;
 
 @Controller
 @RequestMapping("/commodity")
-public class CommodityController extends BaseController<Commodity, Integer>{
+public class CommodityController extends BaseController<Commodity, String>{
 	
 	@Autowired CommodityService commodityService;
 
@@ -43,7 +43,7 @@ public class CommodityController extends BaseController<Commodity, Integer>{
 	@Autowired PropertyService propertyService;
 	
 	@RequestMapping("/editSpecPage")
-	public String editItemPage(Integer id, Model m) {
+	public String editItemPage(String id, Model m) {
 		Commodity entity = commodityService.findById(id);
 		m.addAttribute("entity", entity);
 		List<Spec> specList = specService.findByCategoryId(entity.getProduct().getCategory().getId());
@@ -52,9 +52,9 @@ public class CommodityController extends BaseController<Commodity, Integer>{
 	}
 	
 	@RequestMapping("/saveC2S")
-	public @ResponseBody Map<String, Object> saveC2S(Commodity commodity, Integer[] itemIds) throws JsonGenerationException, JsonMappingException, IOException {
+	public @ResponseBody Map<String, Object> saveC2S(Commodity commodity, String[] itemIds) throws JsonGenerationException, JsonMappingException, IOException {
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
-		for(Integer itemId : itemIds){
+		for(String itemId : itemIds){
 			Commodity2specitem c2s = new Commodity2specitem();
 			Specitem specitem = new Specitem();
 			specitem.setId(itemId);
@@ -67,9 +67,9 @@ public class CommodityController extends BaseController<Commodity, Integer>{
 	}
 	
 	@RequestMapping("/delC2S")
-	public @ResponseBody Map<String, Object> deleteC2S(Commodity commodity, Integer[] itemIds) throws JsonGenerationException, JsonMappingException, IOException {
+	public @ResponseBody Map<String, Object> deleteC2S(Commodity commodity, String[] itemIds) throws JsonGenerationException, JsonMappingException, IOException {
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
-		for(Integer itemId : itemIds){
+		for(String itemId : itemIds){
 			Commodity2specitem c2s = new Commodity2specitem();
 			Specitem specitem = new Specitem();
 			specitem.setId(itemId);
@@ -82,7 +82,7 @@ public class CommodityController extends BaseController<Commodity, Integer>{
 	}
 	
 	@RequestMapping("/editPropertyPage")
-	public String editPropertyPage(Integer id, Model m) {
+	public String editPropertyPage(String id, Model m) {
 		Commodity entity = commodityService.findById(id);
 		m.addAttribute("entity", entity);
 		List<Property> propertyList = propertyService.findByCategoryId(entity.getProduct().getCategory().getId());
@@ -91,9 +91,9 @@ public class CommodityController extends BaseController<Commodity, Integer>{
 	}
 	
 	@RequestMapping("/saveC2P")
-	public @ResponseBody Map<String, Object> saveC2P(Commodity commodity, Integer[] itemIds) throws JsonGenerationException, JsonMappingException, IOException {
+	public @ResponseBody Map<String, Object> saveC2P(Commodity commodity, String[] itemIds) throws JsonGenerationException, JsonMappingException, IOException {
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
-		for(Integer itemId : itemIds){
+		for(String itemId : itemIds){
 			Commodity2propertyitem c2s = new Commodity2propertyitem();
 			Propertyitem item = new Propertyitem();
 			item.setId(itemId);
@@ -106,9 +106,9 @@ public class CommodityController extends BaseController<Commodity, Integer>{
 	}
 	
 	@RequestMapping("/delC2P")
-	public @ResponseBody Map<String, Object> deleteC2P(Commodity commodity, Integer[] itemIds) throws JsonGenerationException, JsonMappingException, IOException {
+	public @ResponseBody Map<String, Object> deleteC2P(Commodity commodity, String[] itemIds) throws JsonGenerationException, JsonMappingException, IOException {
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
-		for(Integer itemId : itemIds){
+		for(String itemId : itemIds){
 			Commodity2propertyitem c2s = new Commodity2propertyitem();
 			Propertyitem item = new Propertyitem();
 			item.setId(itemId);
@@ -121,7 +121,7 @@ public class CommodityController extends BaseController<Commodity, Integer>{
 	}
 	
 	@Override
-	protected BaseService<Commodity, Integer> getService() {
+	protected BaseService<Commodity, String> getService() {
 		return commodityService;
 	}
 

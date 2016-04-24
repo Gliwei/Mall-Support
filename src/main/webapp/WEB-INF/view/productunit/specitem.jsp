@@ -27,7 +27,7 @@ function del(tis){
 	$(tis).parent().remove();
 }
 function save(tis, itemId) {
-	var specId = ${entity.id};
+	var specId = "${entity.id}";
 	var itemName = $(tis).siblings("input").val();
 	$.post("${rootPath}spec/saveItem",{"id":itemId, "spec.id":specId, "itemName":itemName},function(result){
 		if(result && result.state=="success"){

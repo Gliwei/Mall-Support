@@ -22,7 +22,7 @@ import com.lw.productunit.service.SpecitemService;
 
 @Controller
 @RequestMapping("/spec")
-public class SpecController extends BaseController<Spec, Integer>{
+public class SpecController extends BaseController<Spec, String>{
 	
 	@Autowired SpecService specService;
 
@@ -35,7 +35,7 @@ public class SpecController extends BaseController<Spec, Integer>{
 	};
 	
 	@RequestMapping("/editItemPage")
-	public String editItemPage(Integer id, Model m) {
+	public String editItemPage(String id, Model m) {
 		Spec entity = specService.findById(id);
 		m.addAttribute("entity", entity);
 		return "productunit/specitem";
@@ -57,7 +57,7 @@ public class SpecController extends BaseController<Spec, Integer>{
 	}
 	
 	@Override
-	protected BaseService<Spec, Integer> getService() {
+	protected BaseService<Spec, String> getService() {
 		return specService;
 	}
 

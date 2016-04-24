@@ -11,12 +11,12 @@ import com.lw.productunit.service.BrandService;
 
 @Controller
 @RequestMapping("/brand")
-public class BrandController extends BaseController<Brand, Integer> {
+public class BrandController extends BaseController<Brand, String> {
 	
 	@Autowired BrandService brandService;
 	
 	@Override
-	protected BaseService<Brand, Integer> getService() {
+	protected BaseService<Brand, String> getService() {
 		return brandService;
 	}
 	@Override

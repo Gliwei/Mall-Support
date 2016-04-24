@@ -9,12 +9,12 @@ import com.lw.productunit.dao.PropertyitemDao;
 import com.lw.productunit.entity.Propertyitem;
 
 @Service
-public class PropertyitemService extends BaseService<Propertyitem, Integer>{
+public class PropertyitemService extends BaseService<Propertyitem, String>{
 	@Autowired
 	PropertyitemDao propertyitemDao;
 
 	@Override
-	protected BaseDao<Propertyitem, Integer> getEntityDao() {
+	protected BaseDao<Propertyitem, String> getEntityDao() {
 		return propertyitemDao;
 	}
 

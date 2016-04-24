@@ -2,7 +2,6 @@ package com.lw.core.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.GeneratedValue;
@@ -13,17 +12,18 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.annotations.GenericGenerator;
 
 @MappedSuperclass
 public abstract class BaseEntity implements java.io.Serializable {
 	
 	private static final long serialVersionUID = 6960810129594372036L;
 	
-	Integer id;
+	String id;
 	Integer version;
 	String lastOperator;// 操作者
 	Date createTime;
-	Date lastModifyTime;
+	Date lastModifyTime = new Date();
 
 	@Transient
 	public abstract Map<String, String> validation();
@@ -34,15 +34,14 @@ public abstract class BaseEntity implements java.io.Serializable {
 		return id == null || StringUtils.isBlank(String.valueOf(id));
 	}
 	
-	// public abstract String validation();
-
 	@Id
-	@GeneratedValue
-	public Integer getId() {
+	@GenericGenerator(name = "gguuid", strategy = "uuid")
+	@GeneratedValue(generator = "gguuid")
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

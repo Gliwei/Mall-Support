@@ -11,16 +11,16 @@ import com.lw.productunit.dao.SpecDao;
 import com.lw.productunit.entity.Spec;
 
 @Service
-public class SpecService extends BaseService<Spec, Integer>{
+public class SpecService extends BaseService<Spec, String>{
 	@Autowired
 	SpecDao specDao;
 
 	@Override
-	protected BaseDao<Spec, Integer> getEntityDao() {
+	protected BaseDao<Spec, String> getEntityDao() {
 		return specDao;
 	}
 
-	public List<Spec> findByCategoryId(Integer id) {
+	public List<Spec> findByCategoryId(String id) {
 		return specDao.findByCategoryId(id);
 	}
 

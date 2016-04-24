@@ -66,10 +66,13 @@ public class BaseDao<T extends BaseEntity, ID extends Serializable> {
 		Date now = new Date();
 		entity.setLastModifyTime(now);
 		if (entity.isNew()) {
+			entity.setId(null);// 解决detached entity passed to persist
 			entity.setCreateTime(now);
 			entity.setVersion(0);
 			em.persist(entity);
 		}else{
+			int version = entity.getVersion()==null?0:entity.getVersion();
+			entity.setVersion(++version);
 			em.merge(entity);
 		}
 	}

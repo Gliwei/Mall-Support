@@ -6,7 +6,7 @@ import com.lw.core.dao.BaseDao;
 import com.lw.productunit.entity.Brand;
 
 @Repository
-public class BrandDao extends BaseDao<Brand, Integer> {
+public class BrandDao extends BaseDao<Brand, String> {
 
 	public BrandDao() {
 		super(Brand.class);

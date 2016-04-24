@@ -6,7 +6,7 @@ import com.lw.core.dao.BaseDao;
 import com.lw.productunit.entity.Propertyitem;
 
 @Repository
-public class PropertyitemDao extends BaseDao<Propertyitem, Integer> {
+public class PropertyitemDao extends BaseDao<Propertyitem, String> {
 
 	public PropertyitemDao() {
 		super(Propertyitem.class);

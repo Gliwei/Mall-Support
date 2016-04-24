@@ -9,19 +9,19 @@ import com.lw.productunit.dao.ProductDao;
 import com.lw.productunit.entity.Product;
 
 @Service
-public class ProductService extends BaseService<Product, Integer>{
+public class ProductService extends BaseService<Product, String>{
 	@Autowired
 	ProductDao productDao;
 
 	@Override
-	protected BaseDao<Product, Integer> getEntityDao() {
+	protected BaseDao<Product, String> getEntityDao() {
 		return productDao;
 	}
 	
 	@Override
 	public void save(Product entity) {
 		if(entity.isNew()){
-			entity.setSpu(System.currentTimeMillis()+""); // TODO SPU生成策略
+			entity.setSpu(System.currentTimeMillis()+""+(int)(Math.random()*1000)); // TODO SPU生成策略
 		}
 		super.save(entity);
 	}

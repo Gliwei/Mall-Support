@@ -24,7 +24,7 @@
 <%-- <script src="${root}jquery-validation/jquery.validate.js"></script> --%>
 <script type="text/javascript">
 $(function() {
-	var cid = ${entity.id};
+	var cid = "${entity.id}";
 	$('#optgroup').multiSelect({
 		selectableOptgroup: true,
 		selectableHeader: "<div class='custom-header'>未选择</div>",

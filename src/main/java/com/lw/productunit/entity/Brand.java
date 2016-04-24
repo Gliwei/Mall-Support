@@ -87,16 +87,9 @@ public class Brand extends BaseEntity {
 	@Override
 	public String toString() {
 		return "Brand [name=" + name + ", enName=" + enName + ", logoBigUrl=" + logoBigUrl + ", logoSamllUrl="
-				+ logoSamllUrl + ", description=" + description + "]";
+				+ logoSamllUrl + ", description=" + description + ", isNew()=" + isNew() + ", getId()=" + getId()
+				+ ", getVersion()=" + getVersion() + ", getLastOperator()=" + getLastOperator() + ", getCreateTime()="
+				+ getCreateTime() + ", getLastModifyTime()=" + getLastModifyTime() + "]";
 	}
-
-	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "brand")
-	public Set<Product> getProducts() {
-		return this.products;
-	}
-
-	public void setProducts(Set<Product> products) {
-		this.products = products;
-	}*/
 
 }

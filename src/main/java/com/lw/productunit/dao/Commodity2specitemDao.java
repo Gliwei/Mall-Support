@@ -8,17 +8,17 @@ import com.lw.core.dao.BaseDao;
 import com.lw.productunit.entity.Commodity2specitem;
 
 @Repository
-public class Commodity2specitemDao extends BaseDao<Commodity2specitem, Integer> {
+public class Commodity2specitemDao extends BaseDao<Commodity2specitem, String> {
 
 	public Commodity2specitemDao() {
 		super(Commodity2specitem.class);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Commodity2specitem> query(Integer commodityId, Integer specitemId) {
+	public List<Commodity2specitem> query(String commodityId, String specitemId) {
 		
 		List<Commodity2specitem> list = getEm().createQuery("from "+Commodity2specitem.class.getSimpleName()
-						+" where commodity.id="+commodityId+" and specitem.id="+specitemId).getResultList();
+						+" where commodity.id='"+commodityId+"' and specitem.id='"+specitemId+"'").getResultList();
 		return list;
 	}
 

@@ -11,12 +11,12 @@ import com.lw.productunit.dao.Commodity2propertyitemDao;
 import com.lw.productunit.entity.Commodity2propertyitem;
 
 @Service
-public class Commodity2propertyitemService extends BaseService<Commodity2propertyitem, Integer>{
+public class Commodity2propertyitemService extends BaseService<Commodity2propertyitem, String>{
 	@Autowired
 	Commodity2propertyitemDao commodity2propertyitemDao;
 
 	@Override
-	protected BaseDao<Commodity2propertyitem, Integer> getEntityDao() {
+	protected BaseDao<Commodity2propertyitem, String> getEntityDao() {
 		return commodity2propertyitemDao;
 	}
 

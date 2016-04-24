@@ -51,7 +51,7 @@
         <thead>
             <tr>
                 <th width="40px"><input type="checkbox" id="checkAll"/></th>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>mainPicture</th>
                 <th>product</th>
                 <th>SKU</th>
@@ -65,7 +65,7 @@
         	<c:forEach items="${pageable.list}" var="entity">
             <tr>
                 <td><input type="checkbox" /></td>
-                <td>${entity.id}</td>
+                <%-- <td>${entity.id}</td> --%>
                 <td><img src="${entity.mainPicture}"></td>
                 <td>${entity.product.title}</td>
                 <td>${entity.sku}</td>

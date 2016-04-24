@@ -6,7 +6,7 @@ import com.lw.core.dao.BaseDao;
 import com.lw.productunit.entity.Commodity;
 
 @Repository
-public class CommodityDao extends BaseDao<Commodity, Integer> {
+public class CommodityDao extends BaseDao<Commodity, String> {
 
 	public CommodityDao() {
 		super(Commodity.class);

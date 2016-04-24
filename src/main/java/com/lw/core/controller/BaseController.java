@@ -69,7 +69,7 @@ public abstract class BaseController<T extends BaseEntity, ID extends Serializab
 	
 	@RequestMapping("/save")
 	public String save(T entity, Model m) throws JsonGenerationException, JsonMappingException, IOException{
-		System.out.println("实体>>>:"+entity.toString());
+		System.out.println(">>>:"+entity.toString());
 		Map<String, String> msg = entity.validation();
 		if(msg==null || msg.isEmpty()){
 			getService().save(entity);
