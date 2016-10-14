@@ -62,6 +62,9 @@
             </tr>
         </thead>
         <tbody>
+        	<c:if test="${empty pageable.list}">
+        		<td colspan="8">##  NONE  ##</td>
+       		</c:if>
         	<c:forEach items="${pageable.list}" var="entity">
             <tr>
                 <td><input type="checkbox" /></td>

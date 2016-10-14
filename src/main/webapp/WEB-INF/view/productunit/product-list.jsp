@@ -51,7 +51,7 @@
         <thead>
             <tr>
                 <th width="40px"><input type="checkbox" id="checkAll"/></th>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>SPU</th>
                 <th>Category</th>
                 <th>Brand</th>
@@ -61,10 +61,13 @@
             </tr>
         </thead>
         <tbody>
+        	<c:if test="${empty pageable.list}">
+        		<td colspan="7">##  NONE  ##</td>
+       		</c:if>
         	<c:forEach items="${pageable.list}" var="entity">
             <tr>
                 <td><input type="checkbox" /></td>
-                <td>${entity.id}</td>
+                <%-- <td>${entity.id}</td> --%>
                 <td>${entity.spu}</td>
                 <td>${entity.category.name}</td>
                 <td>${entity.brand.name}</td>
