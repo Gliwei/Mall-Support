@@ -53,7 +53,7 @@
 	        </tbody>
 	    </table>
 	    <c:import url="../common/page.jsp">
-	    	<c:param name="url" value="${rootPath}category/select/" />
+	    	<c:param name="url" value="${rootPath}product/select/" />
 	    	<c:param name="modal" value="true" />
 	    </c:import>
     </div>

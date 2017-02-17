@@ -20,7 +20,18 @@
 <script src="${rootPath}js/common-ui.js"></script>
 <%-- <script src="${root}jquery-validation/jquery.validate.js"></script> --%>
 <script type="text/javascript">
-	//$("#entityForm").validate();
+$(function(){
+	$("#xsave").click(function(){
+		var param = $(this).closest("form").serialize();
+		$.post($(this).closest("form").attr("action"), param, function(result){
+			if(result.err==0) {
+				window.location = "${rootPath}product/addPropertyPage?productId="+result.id;
+			} else {
+				alert(result.msg);
+			}
+		}, "json");
+	});
+});
 </script>
 </head>
 <body>
@@ -53,7 +64,7 @@
 		    </div>
 		    
 			<div class="portlet-body form">
-			<form class="form-horizontal form-bordered form-small" role="form" action="${rootPath}product/save"
+			<form class="form-horizontal form-bordered form-small" role="form" action="${rootPath}product/xsave"
 				method="post" id="entityForm"><!-- form-bordered -->
 				<div class="form-body">
 					<input type="hidden" name="id" value="${entity.id}">
@@ -139,7 +150,7 @@
 				</div>
 				<div class="form-actions fluid">
 					<div class="col-md-offset-2 col-md-10">
-						<button type="submit" class="btn blue">Submit</button>
+						<button type="button" class="btn blue" id="xsave">Next>></button>
 						<button type="button" class="btn default">Cancel</button> 
 					</div>
 				</div>

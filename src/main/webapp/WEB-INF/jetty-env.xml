@@ -7,7 +7,7 @@
 		<Arg>
 			<New class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
-				<Set name="url">jdbc:mysql://115.29.37.6:3306/mall?useUnicode=true&amp;characterEncoding=utf-8</Set>
+				<Set name="url">jdbc:mysql://114.215.223.6:3306/mall?useUnicode=true&amp;characterEncoding=utf-8</Set>
 				<Set name="username">root</Set>
 				<Set name="password">123</Set>
 			</New>

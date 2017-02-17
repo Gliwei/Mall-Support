@@ -2,6 +2,7 @@ package com.lw.core.controller;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -11,9 +12,11 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lw.core.entity.BaseEntity;
 import com.lw.core.service.BaseService;
+import com.lw.core.util.JacksonMapper;
 import com.lw.core.util.Pageable;
 
 public abstract class BaseController<T extends BaseEntity, ID extends Serializable> {
@@ -80,5 +83,22 @@ public abstract class BaseController<T extends BaseEntity, ID extends Serializab
 			m.addAttribute("entity", entity);
 		}
 		return getEditPage();
+	}
+	
+	@RequestMapping("/xsave")
+	public @ResponseBody Map<String, Object> xsave(T entity) throws JsonGenerationException, JsonMappingException, IOException{
+		System.out.println(">>>:"+entity.toString());
+		Map<String, String> msg = entity.validation();
+		Map<String, Object> jsonmap = new HashMap<String, Object>();
+		if(msg==null || msg.isEmpty()){
+			getService().save(entity);
+			jsonmap.put("err", 0);
+			jsonmap.put("msg", "success");
+			jsonmap.put("id", entity.getId());
+		} else {
+			jsonmap.put("err", msg.size());
+			jsonmap.put("msg", msg);
+		}
+		return jsonmap;
 	}
 }

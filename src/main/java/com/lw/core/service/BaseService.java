@@ -37,8 +37,8 @@ public abstract class BaseService<T extends BaseEntity, ID extends Serializable>
 		return getEntityDao().findByPage(pageable);
 	}
 	
-	public void delete(ID id){
-		// TODO add is visible field
+	public void delete(T entity){
+		getEntityDao().delete(entity);
 	}
 	
 }

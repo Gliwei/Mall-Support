@@ -23,18 +23,18 @@ public class Property extends BaseEntity {
 
 	private static final long serialVersionUID = 9103800514581523227L;
 	
-	private Category category;
+	private Product product;
 	private String name;
 	private Set<Propertyitem> propertyitems = new HashSet<Propertyitem>(0);
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "categoryId")
-	public Category getCategory() {
-		return this.category;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "productId")
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	@Column(name = "name", nullable = false, length = 30)

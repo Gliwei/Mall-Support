@@ -20,8 +20,8 @@ public class PropertyService extends BaseService<Property, String>{
 		return propertyDao;
 	}
 
-	public List<Property> findByCategoryId(String id) {
-		return propertyDao.findByCategoryId(id);
+	public List<Property> findByProductId(String id) {
+		return propertyDao.findByProductId(id);
 	}
 
 }

@@ -57,14 +57,14 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label class="control-label">Category</label>
+								<label class="control-label">Product</label>
 								<div class="input-group">
-									<input type="hidden" name="category.id" value="${entity.category.id}">
-									<input type="text" class="form-control" id="categoryInfo"
-										value="${entity.category.id} | ${entity.category.name}" readonly>
+									<input type="hidden" name="product.id" value="${entity.product.id}">
+									<input type="text" class="form-control" id="productInfo"
+										value="${entity.product.id} | ${entity.product.name}" readonly>
 									<span class="input-group-btn">
 										<button class="btn default" type="button" data-select="true" 
-											data-remote="${rootPath}category/select/1?f=categoryInfo">
+											data-remote="${rootPath}product/select/1?f=productInfo">
 											<i class="fa fa-search"></i>
 										</button>
 									</span>

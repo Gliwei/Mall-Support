@@ -15,8 +15,8 @@ public class PropertyDao extends BaseDao<Property, String> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Property> findByCategoryId(String id) {
-		return getEm().createQuery("from "+Property.class.getSimpleName()+" where category.id='"+id+"'").getResultList();
+	public List<Property> findByProductId(String id) {
+		return getEm().createQuery("from "+Property.class.getSimpleName()+" where product.id='"+id+"'").getResultList();
 	}
 
 }

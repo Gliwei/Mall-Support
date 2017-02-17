@@ -112,6 +112,6 @@ public class BaseDao<T extends BaseEntity, ID extends Serializable> {
 	}
 
 	public void delete(T entity){
-		em.remove(entity);
+		em.remove(em.merge(entity));
 	}
 }

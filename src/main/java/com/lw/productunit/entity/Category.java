@@ -25,7 +25,6 @@ public class Category extends BaseEntity {
 	private String description;
 	private Category category;
 	private Set<Spec> specs = new HashSet<Spec>(0);
-	private Set<Property> properties = new HashSet<Property>(0);
 	private Set<Product> products = new HashSet<Product>(0);
 	private Set<Category> categories = new HashSet<Category>(0);
 
@@ -64,15 +63,6 @@ public class Category extends BaseEntity {
 
 	public void setSpecs(Set<Spec> specs) {
 		this.specs = specs;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-	public Set<Property> getProperties() {
-		return this.properties;
-	}
-
-	public void setProperties(Set<Property> properties) {
-		this.properties = properties;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade=CascadeType.ALL)

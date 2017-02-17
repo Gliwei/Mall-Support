@@ -53,7 +53,7 @@
                 <th width="40px"><input type="checkbox" id="checkAll"/></th>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Category</th>
+                <th>Product</th>
                 <th>Item</th>
                 <th id="mth"><span id="text"></span><i class="icon-angle-left"></i></th>
             </tr>
@@ -67,7 +67,7 @@
                 <td><input type="checkbox" /></td>
                 <td>${entity.id}</td>
                 <td>${entity.name}</td>
-                <td>${entity.category.name}</td>
+                <td>${entity.product.name}</td>
                 <td>
                 	<a href="${rootPath}property/editItemPage?id=${entity.id}">click edit item</a>
                 </td>

@@ -85,7 +85,7 @@ public class CommodityController extends BaseController<Commodity, String>{
 	public String editPropertyPage(String id, Model m) {
 		Commodity entity = commodityService.findById(id);
 		m.addAttribute("entity", entity);
-		List<Property> propertyList = propertyService.findByCategoryId(entity.getProduct().getCategory().getId());
+		List<Property> propertyList = propertyService.findByProductId(entity.getProduct().getCategory().getId());
 		m.addAttribute("propertyList", propertyList);
 		return "productunit/commodity2propertyitem";
 	}

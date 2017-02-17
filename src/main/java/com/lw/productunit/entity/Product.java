@@ -31,6 +31,7 @@ public class Product extends BaseEntity {
 	private String subtitle;
 	private String htmlDescription;
 	private Set<Commodity> commodities = new HashSet<Commodity>(0);
+	private Set<Property> properties = new HashSet<Property>(0);
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "categoryId")
@@ -95,6 +96,15 @@ public class Product extends BaseEntity {
 
 	public void setCommodities(Set<Commodity> commodities) {
 		this.commodities = commodities;
+	}
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+	public Set<Property> getProperties() {
+		return this.properties;
+	}
+
+	public void setProperties(Set<Property> properties) {
+		this.properties = properties;
 	}
 
 	@Override
