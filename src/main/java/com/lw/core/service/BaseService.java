@@ -37,6 +37,11 @@ public abstract class BaseService<T extends BaseEntity, ID extends Serializable>
 		return getEntityDao().findByPage(pageable);
 	}
 	
+	public Pageable<T> findByPage(int pageNo, int pageSize){
+		Pageable<T> pageable = new Pageable<T>(pageNo, pageSize);
+		return getEntityDao().findByPage(pageable);
+	}
+	
 	public void delete(T entity){
 		getEntityDao().delete(entity);
 	}

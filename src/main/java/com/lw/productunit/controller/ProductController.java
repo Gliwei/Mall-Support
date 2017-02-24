@@ -18,8 +18,10 @@ import com.lw.core.controller.BaseController;
 import com.lw.core.service.BaseService;
 import com.lw.productunit.entity.Product;
 import com.lw.productunit.entity.Property;
+import com.lw.productunit.entity.Propertyitem;
 import com.lw.productunit.service.ProductService;
 import com.lw.productunit.service.PropertyService;
+import com.lw.productunit.service.PropertyitemService;
 
 @Controller
 @RequestMapping("/product")
@@ -27,6 +29,7 @@ public class ProductController extends BaseController<Product, String>{
 	
 	@Autowired ProductService productService;
 	@Autowired PropertyService propertyService;
+	@Autowired PropertyitemService propertyitemService;
 	
 	@RequestMapping("/addPropertyPage")
 	public String addPropertyPage(String productId, Model m) {
@@ -57,6 +60,32 @@ public class ProductController extends BaseController<Product, String>{
 	public @ResponseBody Map<String, Object> delProperty(Property entity) {
 		Map<String, Object> jsonMap = new HashMap<String, Object>();
 		propertyService.delete(entity);
+		jsonMap.put("err", 0);
+		jsonMap.put("msg", "success");
+		return jsonMap;
+	}
+	
+	@RequestMapping("/editOrSavePropertyitem")
+	public @ResponseBody Map<String, Object> editOrSavePropertyitem(Propertyitem entity) throws JsonGenerationException, JsonMappingException, IOException {
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		Map<String, String> msg = entity.validation();
+		if(msg==null || msg.isEmpty()){
+			propertyitemService.save(entity);
+			jsonMap.put("err", 0);
+			jsonMap.put("msg", "success");
+			jsonMap.put("id", entity.getId());
+		} else {
+			ObjectMapper mapper = new ObjectMapper();
+			jsonMap.put("err", msg.size());
+			jsonMap.put("msg", mapper.writeValueAsString(msg));
+		}
+		return jsonMap;
+	}
+	
+	@RequestMapping("/delPropertyitem")
+	public @ResponseBody Map<String, Object> delPropertyitem(Propertyitem entity) {
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		propertyitemService.delete(entity);
 		jsonMap.put("err", 0);
 		jsonMap.put("msg", "success");
 		return jsonMap;

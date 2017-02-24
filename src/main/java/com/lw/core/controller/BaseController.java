@@ -38,7 +38,12 @@ public abstract class BaseController<T extends BaseEntity, ID extends Serializab
     
     @RequestMapping("/select/{p}")
 	public String select(Model m, @PathVariable("p") Integer pageNo, String f){
-		Pageable<T> pageable = getService().findByPage(pageNo);
+		return this.select(m, 10, pageNo, f);
+	}
+    
+    @RequestMapping("/select/{psize}/{p}")
+	public String select(Model m, @PathVariable("psize") Integer pageSize, @PathVariable("p") Integer pageNo, String f){
+		Pageable<T> pageable = getService().findByPage(pageNo, pageSize);
 		m.addAttribute("pageable", pageable);
 		m.addAttribute("f", f);
 		return getSelectPage();
