@@ -251,9 +251,11 @@ table.simple-table .th-hover {
 	display:inline-block;
 	padding: 3px 0;
 	margin: 5px 5px 0 5px;
-	border: 1px solid black;
-	background: black;
+	border: 1px solid orange;
+	background: orange;
 	color: #FFF;
+	cursor: pointer;
+	z-index: 9999;
 }
 .one-to-more .otm-row .prperty-name {
 	float: left;
@@ -262,10 +264,9 @@ table.simple-table .th-hover {
 	display:inline-block;
 	padding: 3px 5px;
 	margin: 5px 2px 0 2px;
-	border: 1px solid orange;
+	border: 1px solid #EEE;
 	border-radius: 2px;
-	color:#F1F1F1;
-	background: orange;
+	background: #EEE;
 	z-index: 999;
 }
 .one-to-more .otm-row .clapboard {
@@ -275,13 +276,12 @@ table.simple-table .th-hover {
 	display:inline-block;
 	padding: 3px 0;
 	margin: 5px 5px 0 5px;
-	border: 1px solid orange;
-	background: orange;
+	border: 1px solid black;
+	background: black;
 }
 .one-to-more .otm-row .prperty-name input {
 	border: none;
-	background: orange;
-	color: #FFF;
+	background: #EEE;
 }
 .one-to-more .otm-row .prperty-name i {
 	color: #333;
@@ -312,7 +312,6 @@ ul.flat li {
 	color:#666666;
 }
 ul.flat li.new {
-	background-color: silver;
 	border: 1px dashed #CCC;
 }
 ul.flat input {

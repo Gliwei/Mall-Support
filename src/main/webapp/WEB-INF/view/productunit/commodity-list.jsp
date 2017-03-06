@@ -69,7 +69,7 @@
             <tr>
                 <td><input type="checkbox" /></td>
                 <%-- <td>${entity.id}</td> --%>
-                <td><img src="${entity.mainPicture}"></td>
+                <td><img src="${entity.mainPicture}" width="70px"></td>
                 <td>${entity.product.title}</td>
                 <td>${entity.sku}</td>
                 <td>${entity.title}</td>
