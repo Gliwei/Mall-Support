@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lw.core.entity.BaseEntity;
 import com.lw.core.service.BaseService;
-import com.lw.core.util.JacksonMapper;
 import com.lw.core.util.Pageable;
 
 public abstract class BaseController<T extends BaseEntity, ID extends Serializable> {
