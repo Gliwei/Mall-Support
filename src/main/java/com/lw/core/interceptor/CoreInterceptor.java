@@ -20,8 +20,7 @@ public class CoreInterceptor implements HandlerInterceptor{
 			HttpServletResponse response, Object handler, Exception e)
 			throws Exception {
 		
-		
-		
+
 	}
 
 	@Override
